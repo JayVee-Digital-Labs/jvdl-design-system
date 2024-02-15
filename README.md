@@ -1,8 +1,9 @@
-# Getting Started with Create React App
+# Jay Vee Digital Labs Design System
+_UI Components for JVDL Apps_
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Create React App Available Scripts
 
 In the project directory, you can run:
 
