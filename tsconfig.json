@@ -21,9 +21,8 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["cypress", "@testing-library/cypress", "node"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src","cypress"]
 }

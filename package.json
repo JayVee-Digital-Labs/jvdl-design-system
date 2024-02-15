@@ -20,7 +20,7 @@
     "start": "npm run storybook",
     "build": "react-scripts build",
     "lint": "react-scripts lint",
-    "test": "react-scripts test",
+    "test": "cypress open",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -32,8 +32,14 @@
       "plugin:storybook/recommended"
     ],
     "rules": {
-      "indent": ["error", 2],
-      "semi": [ "error", "never" ]
+      "indent": [
+        "error",
+        2
+      ],
+      "semi": [
+        "error",
+        "never"
+      ]
     }
   },
   "browserslist": {
@@ -58,6 +64,8 @@
     "@storybook/react": "^7.6.14",
     "@storybook/react-webpack5": "^7.6.14",
     "@storybook/test": "^7.6.14",
+    "@testing-library/cypress": "^10.0.1",
+    "cypress": "^13.6.4",
     "eslint-plugin-storybook": "^0.6.15",
     "prop-types": "^15.8.1",
     "storybook": "^7.6.14",
