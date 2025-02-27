@@ -1,4 +1,5 @@
 import { defineConfig } from "cypress"
+import { configureVisualRegression } from 'cypress-visual-regression/dist/plugin'
 
 export default defineConfig({
   component: {
@@ -6,6 +7,13 @@ export default defineConfig({
       framework: "create-react-app",
       bundler: "webpack",
     },
+    env: {
+      visualRegressionType: 'regression'
+    },
+    screenshotsFolder: './cypress/snapshots/actual',
+    setupNodeEvents(on) {
+      configureVisualRegression(on)
+    }
   },
 
   e2e: {

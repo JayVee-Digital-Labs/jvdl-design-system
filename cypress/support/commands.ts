@@ -37,3 +37,5 @@
 // }
 
 import '@testing-library/cypress/add-commands'
+import { addCompareSnapshotCommand } from 'cypress-visual-regression/dist/command'
+addCompareSnapshotCommand()

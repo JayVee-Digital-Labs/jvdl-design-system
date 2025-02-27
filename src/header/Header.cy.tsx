@@ -1,8 +1,14 @@
 import Header from './Header'
 
-describe('Header Component', () => {
+const componentName = 'Header'
+
+describe(`${componentName} Component`, () => {
   beforeEach(() => {
     cy.mount(<Header />)
+  })
+
+  it('should match initial snapshot', () => {
+    cy.compareSnapshot(componentName)
   })
 
   it('should render with no issues', () => {
