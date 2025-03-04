@@ -1,0 +1,9 @@
+$color-font-primary: #1E1E1E;
+
+:root {
+  --color-font-primary: #{$color-font-primary};
+}
+
+.color-font-primary {
+  color: var(--color-font-primary);
+}

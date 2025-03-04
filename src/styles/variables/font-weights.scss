@@ -1,0 +1,27 @@
+@use 'sass:map';
+
+$font-weights: (
+  extra-bold: 800,
+  bold: 700,
+  normal: 600,
+  light: 500,
+  extra-light: 400
+);
+
+@mixin font-weight($weight) {
+  font-weight: map.get($font-weights, $weight);
+}
+
+:root {
+  @each $weight, $value in $font-weights {
+    --font-weight-#{$weight}: #{$value};
+  }
+}
+
+// Generates the following classes:
+// .font-weight-extra-bold, .font-weight-bold, .font-weight-normal, .font-weight-light, .font-weight-extra-light
+@each $weight, $value in $font-weights {
+  .font-weight-#{$weight} {
+    @include font-weight($weight);
+  }
+}
