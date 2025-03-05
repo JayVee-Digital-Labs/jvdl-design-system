@@ -1,0 +1,28 @@
+@use 'sass:list';
+@use 'sass:map';
+@use '../variables/index' as vars;
+
+$heading-styles: (
+  heading-1: (map.get(vars.$font-sizes, 'heading-1'), map.get(vars.$font-weights, 'heading-extra-bold')),
+  heading-2: (map.get(vars.$font-sizes, 'heading-2'), map.get(vars.$font-weights, 'heading-bold')),
+  heading-3: (map.get(vars.$font-sizes, 'heading-3'), map.get(vars.$font-weights, 'heading-normal')),
+  heading-4: (map.get(vars.$font-sizes, 'heading-4'), map.get(vars.$font-weights, 'heading-light')),
+  heading-5: (map.get(vars.$font-sizes, 'heading-5'), map.get(vars.$font-weights, 'heading-light')),
+  heading-6: (map.get(vars.$font-sizes, 'heading-6'), map.get(vars.$font-weights, 'heading-light'))
+);
+
+@mixin heading-style($font-size, $font-weight-header) {
+  color: vars.$color-font-primary;
+  font-size: $font-size;
+  font-family: vars.$font-family-dm-sans;
+  font-weight: $font-weight-header;
+  word-wrap: vars.$word-wrap-break-word-value;
+}
+
+// Generates the following classes:
+// .heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6
+@each $header, $styles in $heading-styles {
+  .#{$header} {
+    @include heading-style(list.nth($styles, 1), list.nth($styles, 2));
+  }
+}

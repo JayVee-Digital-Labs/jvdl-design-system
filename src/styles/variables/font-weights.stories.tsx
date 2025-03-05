@@ -16,7 +16,7 @@ export default {
 
 const Template: StoryFn = () => (
   <div>
-    <h1 className='header-1'>Font Weights</h1>
+    <h1 className='heading-1'>Font Weights</h1>
     <p className="font-weight-extra-light">Extra Small Text - font-weight-extra-light</p>
     <p className="font-weight-light">Small Text - font-weight-light</p>
     <p className="font-weight-normal">Medium Text - font-weight-normal</p>

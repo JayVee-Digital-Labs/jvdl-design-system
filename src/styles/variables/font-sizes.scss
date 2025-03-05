@@ -1,12 +1,12 @@
 @use 'sass:map';
 
 $font-sizes: (
-  header-1: 48px,
-  header-2: 36px,
-  header-3: 28px,
-  header-4: 24px,
-  header-5: 18px,
-  header-6: 16px
+  heading-1: 48px,
+  heading-2: 36px,
+  heading-3: 28px,
+  heading-4: 24px,
+  heading-5: 18px,
+  heading-6: 16px
 );
 
 @mixin font-size($header) {
@@ -20,7 +20,7 @@ $font-sizes: (
 }
 
 // Generates the following classes:
-// .font-size-header-1, .font-size-header-2, .font-size-header-3, .font-size-header-4, .font-size-header-5, .font-size-header-6
+// .font-size-heading-1, .font-size-heading-2, .font-size-heading-3, .font-size-heading-4, .font-size-heading-5, .font-size-heading-6
 @each $header, $size in $font-sizes {
   .font-size-#{$header} {
     font-size: var(--font-size-#{$header});
