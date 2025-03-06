@@ -10,6 +10,7 @@
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "test": "npm run test:open",
+    "test:ci": "cypress run --component",
     "test:open": "cypress open"
   },
   "dependencies": {
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
     "@eslint/eslintrc": "^3",
+    "@simonsmith/cypress-image-snapshot": "^9.1.0",
     "@storybook/addon-essentials": "^8.6.3",
     "@storybook/addon-onboarding": "^8.6.3",
     "@storybook/addon-styling-webpack": "^1.0.1",
@@ -30,6 +32,7 @@
     "@storybook/react": "^8.6.3",
     "@storybook/test": "^8.6.3",
     "@storybook/web-components": "^8.6.3",
+    "@testing-library/cypress": "^10.0.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
