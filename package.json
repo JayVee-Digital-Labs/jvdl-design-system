@@ -13,6 +13,7 @@
     "build-storybook": "storybook build",
     "build:design-system": "rollup -c",
     "build:styles": "sass src/styles:dist/styles",
+    "commit": "cz",
     "commitlint": "commitlint --edit --from=HEAD~1 --to=HEAD",
     "dev": "next dev",
     "lint": "next lint",
@@ -21,7 +22,8 @@
     "storybook": "storybook dev -p 6006",
     "test": "npm run test:open",
     "test:ci": "cypress run --component",
-    "test:open": "cypress open"
+    "test:open": "cypress open",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md && git commit -m 'chore(release): update changelog' && git tag -a v$(node -p -e \"require('./package.json').version\") -m 'chore(release): $(node -p -e \"require('./package.json').version\")'"
   },
   "dependencies": {
     "next": "15.2.0",
