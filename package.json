@@ -23,7 +23,7 @@
     "test": "npm run test:open",
     "test:ci": "cypress run --component",
     "test:open": "cypress open",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md && git commit -m 'chore(release): update changelog' && git tag -a v$(node -p -e \"require('./package.json').version\") -m 'chore(release): $(node -p -e \"require('./package.json').version\")'"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md && git commit -m 'chore(release): update changelog' && (git tag -a v$(node -p -e \"require('./package.json').version\") -m 'chore(release): $(node -p -e \"require('./package.json').version\")' || echo 'Tag already exists')"
   },
   "dependencies": {
     "next": "15.2.0",
