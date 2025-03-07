@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import Heading from './heading';
 
 export default {
-  title: 'Elements/Header',
+  title: 'Elements/Heading',
   tags: ['components', 'elements', 'heading', 'autodocs'],
   component: Heading,
   parameters: {
