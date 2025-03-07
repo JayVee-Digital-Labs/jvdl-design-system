@@ -4,6 +4,38 @@
 
 A Common Design System to be used in JVDL Projects.
 
+## How to Use
+
+### Installation
+
+To get started, install the package from npm:
+
+```sh
+npm install jvdl-design-system
+```
+
+### Importing Styles
+
+In your project, open the app.tx, _app.js_app.tsx, or equivilent add import the compiled CSS
+
+```ts
+// Your top level App
+import 'jvdl-design-system/dist/styles/index.css';
+```
+
+### Using Components
+
+After importing the styles, you can use the provided components anywhere in your app:
+
+```ts
+// filepath: /path/to/your-nextjs-app/pages/index.tsx
+import { Heading } from 'jvdl-design-system';
+
+export default function Home() {
+  return <Heading level={2}>Hello from JVDL Design System!</Heading>;
+}
+```
+
 ## What is a Design System?
 
 A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. It ensures consistency and efficiency in design and development by providing a shared language and set of principles for teams to follow. In this project, the design system is implemented using React, Next.js, and Storybook, providing a robust and scalable solution for building UI components.
