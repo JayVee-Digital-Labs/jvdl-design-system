@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import { Image, ImageProps } from './image';
+import Image, { ImageProps } from './image';
 
 export default {
   tags: ['elements', 'image', 'autodocs'],

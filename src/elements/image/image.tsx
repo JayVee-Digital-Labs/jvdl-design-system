@@ -44,4 +44,5 @@ export const Image: React.FC<ImageProps> = ({ src, alt, position = 'center', wid
   );
 };
 
+export default Image;
 export type { ImageProps };
