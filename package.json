@@ -1,6 +1,6 @@
 {
   "name": "jvdl-design-system",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -21,7 +21,8 @@
     "storybook": "storybook dev -p 6006",
     "test": "npm run test:open",
     "test:ci": "cypress run --component",
-    "test:open": "cypress open"
+    "test:open": "cypress open",
+    "test:open:update": "cypress open --env updateSnapshots=true"
   },
   "dependencies": {
     "next": "15.2.0",

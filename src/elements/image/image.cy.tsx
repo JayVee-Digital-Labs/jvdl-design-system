@@ -1,9 +1,9 @@
 import React from 'react';
-import Image  from './image';
+import Image, { ImagePosition }  from './image';
 import { mount } from 'cypress/react';
 
 describe('Image', () => {
-  const positions: Array<'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'cover' | 'none'> = ['top-left', 'top-right', 'bottom-left', 'bottom-right', 'cover', 'none'];
+  const positions: Array<ImagePosition> = ['top-left', 'top-right', 'bottom-left', 'bottom-right', 'cover', 'none'];
 
   const square = '300px';
   let testImage: string;

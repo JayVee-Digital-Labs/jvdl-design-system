@@ -2,6 +2,8 @@ import React from 'react';
 import { TestId } from '@/types/test-id';
 import '@/styles/image/image.scss';
 
+export type ImagePosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'cover' | 'none';
+
 interface ImageProps extends TestId {
   /**
    * Source URL for the image.
@@ -14,10 +16,9 @@ interface ImageProps extends TestId {
   alt: string;
 
   /**
-   * Position of the image. Can be 'top-left', 'top-right', 'bottom-left', 'bottom-right', or 'center'.
-   * Defaults to 'center'.
+   * Position of the image. Can be 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'cover', or 'none'. Defaults to 'cover'. This only applies if Width and Height are set. 
    */
-  position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'cover' | 'none';
+  position?: ImagePosition
 
   /**
    * Width of the image. Defaults to the image's natural width.
@@ -30,7 +31,7 @@ interface ImageProps extends TestId {
   height?: string;
 }
 
-export const Image: React.FC<ImageProps> = ({ src, alt, position = 'center', width, height, testId }) => {
+export const Image: React.FC<ImageProps> = ({ src, alt, position = 'cover', width, height, testId }) => {
   const positionClass = `image-${position}`;
 
   return (
