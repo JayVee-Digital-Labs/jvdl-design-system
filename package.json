@@ -17,6 +17,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "prepare": "husky",
+    "publish": "node scripts/publish-changes.js",
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "test": "npm run test:open",

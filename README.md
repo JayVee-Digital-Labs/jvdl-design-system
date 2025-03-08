@@ -66,17 +66,21 @@ The project is organized into several key directories:
 
 The following commands are available in the [`package.json`](package.json ):
 
-- **`npm run build`**: Builds the Next.js application.
+- **`npm run build`**: Builds the design system and styles.
 - **`npm run build-storybook`**: Builds the Storybook documentation.
+- **`npm run build:design-system`**: Builds the design system using Rollup.
+- **`npm run build:styles`**: Builds the styles using Sass.
 - **`npm run commitlint`**: Runs commitlint to check commit messages.
 - **`npm run dev`**: Starts the Next.js development server.
 - **`npm run lint`**: Runs ESLint to check for code quality issues.
+- **`npm run prepare`**: Initializes Husky for Git hooks.
+- **`npm run publish`**: Runs the publish-changes script to update version, create a git tag, and push changes.
 - **`npm run start`**: Starts the Storybook server.
 - **`npm run storybook`**: Starts the Storybook development server.
 - **`npm run test`**: Opens Cypress for running tests.
 - **`npm run test:ci`**: Runs Cypress tests in CI mode.
 - **`npm run test:open`**: Opens Cypress for running tests interactively.
-- **`npm run prepare`**: Initializes Husky for Git hooks.
+- **`npm run test:open:update`**: Opens Cypress for running tests interactively with snapshot updates.
 
 ## Contribution Guidelines
 
@@ -137,7 +141,7 @@ Snapshot testing is used to capture the rendered output of components and compar
 
 To update the snapshots, run:
 ```sh
-npm run test:update-snapshots
+npm run test:open:update
 ```
 
 Make sure to review the changes in the snapshots before committing them to ensure they are intentional.
