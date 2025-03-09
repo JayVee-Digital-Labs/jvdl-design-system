@@ -48,3 +48,6 @@ next-env.d.ts
 
 # rollup
 .rollup.cache
+
+# Copilot Code Generation Space
+docs/jvdl-design-system
