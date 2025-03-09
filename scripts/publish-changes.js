@@ -3,6 +3,10 @@ import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import readline from 'readline';
 
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = join(__filename, '..');
+
 const packageJsonPath = join(__dirname, '../package.json');
 const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
 
@@ -36,6 +40,7 @@ function getCommitType() {
 }
 
 function updateVersion(newVersion) {
+    console.log('Updating version...');
     packageJson.version = newVersion;
     const latestCommit = execSync('git log -1 --pretty=%B').toString().trim();
     packageJson.latestCommit = latestCommit;
@@ -43,11 +48,14 @@ function updateVersion(newVersion) {
 }
 
 function createGitTag(version) {
+    console.log('Creating git tag...');
     execSync(`git tag v${version}`);
 }
 
 function pushChanges() {
-    execSync('git push origin main'); // Adjust branch name if necessary
+    console.log('Pushing changes...');
+
+    execSync('git push origin main', { stdio: 'inherit' }); // Adjust branch name if necessary
     execSync('git push origin --tags');
 }
 
@@ -73,16 +81,19 @@ async function main() {
         return;
     }
 
+    console.log('Getting current version...');
     const currentVersion = packageJson.version;
+    console.log('Determining commit type...');
     const commitType = getCommitType();
+    console.log('Calculating next version...');
     const newVersion = getNextVersion(currentVersion, commitType);
 
     updateVersion(newVersion);
 
-    // Stage the updated package.json
+    console.log('Staging updated package.json...');
     execSync('git add package.json');
 
-    // Amend the latest commit with the updated package.json
+    console.log('Amending latest commit...');
     execSync('git commit --amend --no-edit');
 
     createGitTag(newVersion);
