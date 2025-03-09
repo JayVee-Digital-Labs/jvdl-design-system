@@ -1,6 +1,6 @@
 {
   "name": "jvdl-design-system",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": false,
   "type": "module",
   "main": "dist/index.js",
@@ -84,5 +84,5 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(link): add link element component"
+  "latestCommit": "feat(background-image): add background-image element"
 }

@@ -7,7 +7,7 @@ This is the base prompt. Add and tweak
 Create me a <COMPONENT_NAME> with the following requirements:
 - <REQUIREMENTS>
 - Props interface should extend test ID Interface
-- It should add javadoc comments to the props interface, not jsdocs
+- It should add javadoc comments to the props interface, not jsdocs annotations
 - Should export props interface.
 - For any styles, make them follow atomic style so later on I can easily import them into a SCSS File
 See `heading.tsx` for code style preferences
