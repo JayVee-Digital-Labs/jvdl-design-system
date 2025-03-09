@@ -1,6 +1,6 @@
 {
   "name": "jvdl-design-system",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -83,5 +83,5 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(icon): add icon element component"
+  "latestCommit": "fix(test): remove missing test\n\nYes this should be a test type, but I need to test the publish command"
 }
