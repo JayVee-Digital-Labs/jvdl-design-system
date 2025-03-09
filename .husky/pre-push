@@ -1,6 +1,6 @@
-npm run lint
-npm run test:ci
-
-if [ "$1" != "tag" ]; then
+if [ "$1" == "tag" ]; then
   exit 0
 fi
+
+npm run lint
+npm run test:ci
