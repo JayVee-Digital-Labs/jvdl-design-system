@@ -1,7 +1,8 @@
 {
   "name": "jvdl-design-system",
-  "version": "1.4.1",
+  "version": "1.4.3",
   "private": false,
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -83,5 +84,5 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(test): remove missing test\n\nYes this should be a test type, but I need to test the publish command"
+  "latestCommit": "fix(publish): fix publish script\n\nAgain, not the correct commit type but to test the publish command"
 }
