@@ -10,7 +10,6 @@ A Common Design System to be used in JVDL Projects.
 
 To get started, install the package from npm:
 
-NOTE: Not published yet
 ```sh
 npm install @jayvee-digital-labs/design-system
 ```
@@ -21,7 +20,7 @@ In your project, open the app.tx, _app.js_app.tsx, or equivilent add import the 
 
 ```ts
 // Your top level App
-import '@jayvee-digital-labs/design-system/dist/styles/index.css';
+import '@jayvee-digital-labs/design-system/index.css';
 ```
 
 ### Using Components

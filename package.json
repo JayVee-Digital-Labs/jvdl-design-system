@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "private": false,
   "type": "module",
   "main": "dist/index.js",
@@ -88,7 +88,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(build): contain misc build issues\n\nThe following\n- build properly with out unessesary files (cy and stories)\n- export declaration file\n- fix build issues with tsx to jsx",
+  "latestCommit": "fix(styles): fix style export for dist",
   "publishConfig": {
     "access": "public"
   }

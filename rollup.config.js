@@ -33,6 +33,7 @@ const config = {
     postcss({
       extensions: ['.scss'],
       use: [['sass', { includePaths: ['src/styles'] }]],
+      extract: 'index.css'
     }),
     terser(),
   ],
