@@ -30,7 +30,7 @@ In your project, open the app.tx, _app.js_app.tsx, or equivilent add import the 
 
 ```ts
 // Your top level App
-import 'jvdl-design-system/dist/styles/index.css';
+import '@jayvee-digital-labs/design-system/dist/styles/index.css';
 ```
 
 ### Using Components
@@ -39,10 +39,20 @@ After importing the styles, you can use the provided components anywhere in your
 
 ```ts
 // filepath: /path/to/your-nextjs-app/pages/index.tsx
-import { Heading } from 'jvdl-design-system';
+import { Heading } from '@jayvee-digital-labs/dessign-system';
 
 export default function Home() {
   return <Heading level={2}>Hello from JVDL Design System!</Heading>;
 }
 ```
 
+### Component Props
+
+Most components come with their exported component props. You can refer to the documentation for each component to see the available props and how to use them. Here is an example using the `Heading` component:
+
+```ts
+import { Heading } from '@jayvee-digital-labs/design-system';
+
+export default function Home() {
+  return <Heading level={2} color="primary">Hello from JVDL Design System!</Heading>;
+}

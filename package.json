@@ -15,6 +15,7 @@
     "build:design-system": "rollup -c",
     "build:styles": "sass src/styles:dist/styles",
     "commitlint": "commitlint --edit --from=HEAD~1 --to=HEAD",
+    "deploy": "firebase deploy",
     "dev": "next dev",
     "lint": "next lint",
     "prepare": "husky",

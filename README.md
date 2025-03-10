@@ -67,11 +67,12 @@ The project is organized into several key directories:
 
 The following commands are available in the [`package.json`](package.json ):
 
-- **`npm run build`**: Builds the design system and styles.
+- **`npm run build`**: Cleans the `dist` directory and builds the design system and styles.
 - **`npm run build-storybook`**: Builds the Storybook documentation.
 - **`npm run build:design-system`**: Builds the design system using Rollup.
 - **`npm run build:styles`**: Builds the styles using Sass.
 - **`npm run commitlint`**: Runs commitlint to check commit messages.
+- **`npm run deploy`**: Deploys the project using Firebase.
 - **`npm run dev`**: Starts the Next.js development server.
 - **`npm run lint`**: Runs ESLint to check for code quality issues.
 - **`npm run prepare`**: Initializes Husky for Git hooks.
@@ -86,6 +87,26 @@ The following commands are available in the [`package.json`](package.json ):
 ## Contribution Guidelines
 
 We welcome contributions to the JVDL Design System! Please follow these guidelines to ensure a smooth process:
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js**: It's recommended to use Node Version Manager (nvm) to manage Node.js versions. You can install the required Node.js version specified in the `.nvmrc` file by running:
+   ```sh
+   nvm install
+   nvm use
+   ```
+
+- **Firebase CLI**: To deploy Storybook properly, you will need the Firebase CLI. Install it globally using npm:
+   ```sh
+   npm install -g firebase-tools
+   ```
+
+Make sure to authenticate with Firebase by running:
+   ```sh
+   firebase login
+   ```
 
 ### Forking the Repository
 
