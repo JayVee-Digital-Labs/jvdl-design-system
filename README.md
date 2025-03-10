@@ -155,3 +155,26 @@ Tests are located in the `cypress/` directory. Follow these guidelines when writ
 3. **Keep tests isolated**: Ensure tests do not depend on each other and can run independently.
 
 For more information on writing tests with Cypress, refer to the [Cypress documentation](https://docs.cypress.io).
+
+## Deployment Steps
+
+1. Initialize Firebase in your project:
+   ```sh
+   firebase init
+   ```
+   - Select "Hosting" and follow the prompts to set up your project.
+   - Choose the existing Firebase project or create a new one.
+   - Set the public directory to `build` (or the directory where your build output is located).
+   - Configure as a single-page app (if applicable).
+
+2. Build your project:
+   ```sh
+   npm run build
+   ```
+
+3. Deploy to Firebase Hosting:
+   ```sh
+   firebase deploy
+   ```
+
+Your project should now be live on Firebase Hosting. For more information, refer to the [Firebase Hosting documentation](https://firebase.google.com/docs/hosting).
