@@ -76,7 +76,7 @@ The following commands are available in the [`package.json`](package.json ):
 - **`npm run dev`**: Starts the Next.js development server.
 - **`npm run lint`**: Runs ESLint to check for code quality issues.
 - **`npm run prepare`**: Initializes Husky for Git hooks.
-- **`npm run publish`**: Runs the publish-changes script to update version, create a git tag, and push changes.
+- **`npm run publish:local`**: Runs the publish-changes script to run tests, update version, create a git tag, push changes, deploy to firebase, and publish to NPM. **ONLY DO THIS IF CI/CD IS DOWN OR DOES NOT EXIST - RUN ONLY WITH ONE COMMIT CHANGE (`feat`, `fix`, `feat!` only allowed)
 - **`npm run start`**: Starts the Storybook server.
 - **`npm run storybook`**: Starts the Storybook development server.
 - **`npm run test`**: Opens Cypress for running tests.

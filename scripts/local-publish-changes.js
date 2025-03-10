@@ -92,11 +92,14 @@ async function main() {
 
   updateVersion(newVersion);
 
+  console.log("Building App...");
+  execSync("npm run build", { stdio: "inherit" });
+
   console.log("Staging updated package.json...");
-  execSync("git add package.json");
+  execSync("git add package.json", { stdio: "inherit" });
 
   console.log("Amending latest commit...");
-  execSync("git commit --amend --no-edit");
+  execSync("git commit --amend --no-edit", { stdio: "inherit" });
 
   createGitTag(newVersion);
   pushChanges();
@@ -106,6 +109,9 @@ async function main() {
 
   console.log("Deploying to Firebase...");
   execSync("firebase deploy", { stdio: "inherit" });
+
+  console.log("Publishing to NPM...");
+  execSync("npm publish", { stdio: "inherit" });
 }
 
 main();
