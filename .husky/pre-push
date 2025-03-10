@@ -1,4 +1,4 @@
-if [ "$1" == "tags" ]; then
+if [[ "$2" =~ refs/tags ]]; then
   exit 0
 fi
 
