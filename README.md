@@ -10,8 +10,9 @@ A Common Design System to be used in JVDL Projects.
 
 To get started, install the package from npm:
 
+NOTE: Not published yet
 ```sh
-npm install jvdl-design-system
+npm install @jayvee-digital-labs/design-system
 ```
 
 ### Importing Styles
@@ -20,7 +21,7 @@ In your project, open the app.tx, _app.js_app.tsx, or equivilent add import the 
 
 ```ts
 // Your top level App
-import 'jvdl-design-system/dist/styles/index.css';
+import '@jayvee-digital-labs/design-system/dist/styles/index.css';
 ```
 
 ### Using Components
@@ -29,7 +30,7 @@ After importing the styles, you can use the provided components anywhere in your
 
 ```ts
 // filepath: /path/to/your-nextjs-app/pages/index.tsx
-import { Heading } from 'jvdl-design-system';
+import { Heading } from '@jayvee-digital-labs/design-system;
 
 export default function Home() {
   return <Heading level={2}>Hello from JVDL Design System!</Heading>;
