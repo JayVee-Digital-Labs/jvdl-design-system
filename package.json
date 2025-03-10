@@ -1,11 +1,11 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
-  "types": "dist/src/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -88,7 +88,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(types): export common types",
+  "latestCommit": "fix(typings): fix typings issue",
   "publishConfig": {
     "access": "public"
   }
