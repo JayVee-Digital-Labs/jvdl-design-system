@@ -85,5 +85,8 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(social-media-bar): add new social media bar"
+  "latestCommit": "feat(social-media-bar): add new social media bar",
+  "publishConfig": {
+    "access": "public"
+  }
 }
