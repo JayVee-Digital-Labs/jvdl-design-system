@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -88,7 +88,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(export): fix export for module support\n\nThis also contains a small fix for local publish script",
+  "latestCommit": "fix(icon): fix icon export",
   "publishConfig": {
     "access": "public"
   }
