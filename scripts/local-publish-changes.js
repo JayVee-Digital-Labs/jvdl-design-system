@@ -68,7 +68,7 @@ function promptUser() {
     });
 
     const question =
-      "\x1b[41m\x1b[30mThis script will update the run tests, version, create a git tag, push to the latest branch, build the storybook static files, and finally deploy it to Firebase hosting. It should only be used on main with ONE commit using `feat`,`feat!` or `fix`. THIS IS ONLY MEANT TO BE USED LOCAL AS A TEMPORARY CI/CD PROCESS OR IF CI/CD IS BROKEN. Do you want to proceed? (Y/N): \x1b[0m";
+      "\x1b[41m\x1b[30mThis script will run tests, update version, create a git tag, push to the latest branch, build the storybook static files, deploy it to Firebase hosting, and finally publish to NPM. It should only be used on main with ONE commit using `feat`,`feat!` or `fix`. THIS IS ONLY MEANT TO BE USED LOCAL AS A TEMPORARY CI/CD PROCESS OR IF CI/CD IS BROKEN. Do you want to proceed? (Y/N): \x1b[0m";
     rl.question(question, (answer) => {
       rl.close();
       resolve(answer.toLowerCase() === "y");
@@ -92,11 +92,14 @@ async function main() {
 
   updateVersion(newVersion);
 
+  console.log("Installing packages...");
+  execSync("npm install", { stdio: "inherit" });
+
   console.log("Building App...");
   execSync("npm run build", { stdio: "inherit" });
 
   console.log("Staging updated package.json...");
-  execSync("git add package.json", { stdio: "inherit" });
+  execSync("git add package.json package-lock.json", { stdio: "inherit" });
 
   console.log("Amending latest commit...");
   execSync("git commit --amend --no-edit", { stdio: "inherit" });
