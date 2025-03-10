@@ -100,6 +100,12 @@ async function main() {
 
   createGitTag(newVersion);
   pushChanges();
+
+  console.log("Building Storybook files...");
+  execSync("npm run build-storybook", { stdio: "inherit" });
+
+  console.log("Deploying to Firebase...");
+  execSync("firebase deploy", { stdio: "inherit" });
 }
 
 main();
