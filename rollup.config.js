@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import alias from '@rollup/plugin-alias';
+import url from '@rollup/plugin-url';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -21,12 +22,17 @@ const config = {
       entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
     }),
     resolve(),
+    typescript({
+      tsconfig: './tsconfig.build.json'
+    }),
     commonjs(),
-    typescript(),
+    url({
+      include: ['**/*.svg'],
+      limit: 0,
+    }),
     postcss({
       extensions: ['.scss'],
       use: [['sass', { includePaths: ['src/styles'] }]],
-      extract: 'dist/styles.css', // or true to auto-generate .css
     }),
     terser(),
   ],

@@ -1,19 +1,21 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.8.0",
+  "version": "1.8.2",
   "private": false,
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist/ && npm run build:design-system && npm run build:styles",
+    "build": "npm run clean:cache && rimraf dist && rollup -c",
     "build-storybook": "storybook build",
     "build:design-system": "rollup -c",
     "build:styles": "sass src/styles:dist/styles",
+    "build:types": "tsc --project tsconfig.build.json",
+    "clean:cache": "rimraf .rollup.cache",
     "commitlint": "commitlint --edit --from=HEAD~1 --to=HEAD",
     "deploy": "firebase deploy",
     "dev": "next dev",
@@ -42,6 +44,7 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
+    "@rollup/plugin-url": "^8.0.2",
     "@simonsmith/cypress-image-snapshot": "^9.1.0",
     "@storybook/addon-essentials": "^8.6.3",
     "@storybook/addon-onboarding": "^8.6.3",
@@ -85,7 +88,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(social-media-bar): add new social media bar",
+  "latestCommit": "fix(build): contain misc build issues\n\nThe following\n- build properly with out unessesary files (cy and stories)\n- export declaration file\n- fix build issues with tsx to jsx",
   "publishConfig": {
     "access": "public"
   }

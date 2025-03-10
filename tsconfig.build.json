@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": false,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "incremental": false 
+  },
+  "exclude": [
+    "cypress",
+    "**/*.cy.*",
+    "**/*.test.*",
+    "**/*.stories.*",
+    "cypress.config.ts",
+    "vitest.config.ts",
+    "next.config.ts"
+  ]
+}
