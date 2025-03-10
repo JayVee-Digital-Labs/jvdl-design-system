@@ -1,0 +1,26 @@
+.social-media-bar {
+  display: flex;
+  gap: 16px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.social-media-bar__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 34px;
+  height: 34px;
+  background: white;
+  border-radius: 5px;
+}
+
+.social-media-bar__item--drop-shadow {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.social-media-bar__item img {
+  width: 24px;
+  height: 24px;
+}
