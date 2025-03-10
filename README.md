@@ -29,7 +29,7 @@ After importing the styles, you can use the provided components anywhere in your
 
 ```ts
 // filepath: /path/to/your-nextjs-app/pages/index.tsx
-import { Heading } from '@jayvee-digital-labs/design-system;
+import { Heading } from '@jayvee-digital-labs/dist/design-system;
 
 export default function Home() {
   return <Heading level={2}>Hello from JVDL Design System!</Heading>;
