@@ -1,4 +1,4 @@
-if [ "$1" == "tag" ]; then
+if [ "$1" == "tags" ]; then
   exit 0
 fi
 

@@ -1,9 +1,9 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.8.4",
+  "version": "1.8.5",
   "private": false,
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
   "types": "dist/src/index.d.ts",
   "files": [
@@ -88,7 +88,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(heading): fix heading name",
+  "latestCommit": "fix(export): fix export for module support\n\nThis also contains a small fix for local publish script",
   "publishConfig": {
     "access": "public"
   }

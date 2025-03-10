@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 const config = {
   input: 'src/index.ts',
   output: [
-    { file: 'dist/index.js', format: 'cjs', sourcemap: true },
+    { file: 'dist/index.cjs', format: 'cjs', sourcemap: true },
     { file: 'dist/index.esm.js', format: 'esm', sourcemap: true },
   ],
   plugins: [
