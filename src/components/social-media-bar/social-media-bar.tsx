@@ -3,6 +3,7 @@ import Icon from '@/elements/icon/icon';
 import { IconName } from '@/elements/icon/icon-map';
 import Link from '@/elements/link/link';
 import { TestId } from '@/types/test-id';
+import { DropShadowProps } from '@/types/drop-shadow';
 import '@/styles/components/social-media-bar.scss';
 
 export interface SocialMediaConfig {
@@ -12,11 +13,9 @@ export interface SocialMediaConfig {
   href: string;
 }
 
-export interface SocialMediaBarProps extends TestId {
+export interface SocialMediaBarProps extends TestId, DropShadowProps {
   /** Array of social media configurations */
   configs: SocialMediaConfig[];
-  /** Whether to apply a drop shadow to the icons */
-  applyDropShadow?: boolean;
 }
 
 /**
@@ -26,7 +25,7 @@ export interface SocialMediaBarProps extends TestId {
  * @returns {JSX.Element} The rendered SocialMediaBar component.
  */
 const SocialMediaBar: React.FC<SocialMediaBarProps> = ({ configs, testId, applyDropShadow = true }) => {
-  const dropShadowClass = applyDropShadow ? 'social-media-bar__item--drop-shadow' : '';
+  const dropShadowClass = applyDropShadow ? 'drop-shadow' : '';
 
   return (
     <div className={`social-media-bar ${dropShadowClass}`} data-testid={testId}>

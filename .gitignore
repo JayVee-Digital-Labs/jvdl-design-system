@@ -45,6 +45,7 @@ next-env.d.ts
 
 # Cypress Diff Output
 **/__diff_output__/**
+**/screenshots/**
 
 # rollup
 .rollup.cache
