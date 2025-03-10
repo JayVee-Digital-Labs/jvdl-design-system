@@ -6,6 +6,6 @@ export { default as Link } from './link/link';
 
 export type { BackgroundImageProps } from './background-image/background-image';
 export type { ContainerProps } from './container/container';
-export type { HeaderLevels, HeadingsProps } from './heading/heading';
+export type { HeaderLevels, HeadingProps } from './heading/heading';
 export type { ImageProps } from './image/image';
 export type { LinkProps } from './link/link';

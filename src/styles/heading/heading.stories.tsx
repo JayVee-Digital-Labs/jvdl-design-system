@@ -4,11 +4,11 @@ import './heading.scss';
 
 export default {
   tags: ['styles', 'header', 'autodocs'],
-  title: 'Styles/Headings',
+  title: 'Styles/Heading',
   parameters: {
     docs: {
       description: {
-        story: 'You can use classes `heading-1` through `heading-6` to style your headings.',
+        story: 'You can use classes `heading-1` through `heading-6` to style your Heading.',
       },
     },
   },
