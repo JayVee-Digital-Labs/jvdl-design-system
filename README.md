@@ -2,7 +2,7 @@
 
 ## Description
 
-A Common Design System to be used in JVDL Projects.
+A Common Design System to be used in JVDL Projects. If you happen to stumble upon this, feel free to use, **But I will not get back to any feature requests, but requests will be evaluated first**. 
 
 ## How to Use
 
@@ -33,6 +33,56 @@ import { Heading } from '@jayvee-digital-labs/dist/design-system;
 
 export default function Home() {
   return <Heading level={2}>Hello from JVDL Design System!</Heading>;
+}
+```
+
+### Typings workaround
+
+If you are seeing any typings error, add this to your `global.d.ts`. This will be fixed in the next iteration.
+
+```ts
+declare module '@jayvee-digital-labs/design-system' {
+  import { FC } from 'react';
+  
+  export interface TestId {
+    testId?: string;
+  }
+
+  export interface DropShadowProps {
+    applyDropShadow?: boolean;
+  }
+  
+  export type HeaderLevels = 1 | 2 | 3 | 4 | 5 | 6;
+  
+  export interface HeadingProps extends TestId {
+    level: HeaderLevels;
+    children: React.ReactNode;
+  }
+  
+  export interface ImageProps {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  }
+
+  export type AvatarSize = 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
+  
+  export interface AvatarProps extends ImageProps, DropShadowProps {
+    testId?: string;
+    size?: AvatarSize;
+    customSize?: string;
+  }
+
+  export interface LinkProps extends TestId {
+    href: string;
+    children: React.ReactNode;
+    openInNewTab?: boolean;
+  }
+  
+  export const Heading: FC<HeadingProps>;
+  export const Avatar: FC<AvatarProps>;
+  export const Link: FC<LinkProps>;
 }
 ```
 
