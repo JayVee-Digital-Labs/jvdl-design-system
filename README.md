@@ -20,7 +20,7 @@ In your project, open the app.tx, _app.js_app.tsx, or equivilent add import the 
 
 ```ts
 // Your top level App
-import '@jayvee-digital-labs/design-system/index.css';
+import '@jayvee-digital-labs/design-system/dist/index.css';
 ```
 
 ### Using Components
@@ -29,7 +29,7 @@ After importing the styles, you can use the provided components anywhere in your
 
 ```ts
 // filepath: /path/to/your-nextjs-app/pages/index.tsx
-import { Heading } from '@jayvee-digital-labs/dist/design-system;
+import { Heading } from '@jayvee-digital-labs/design-system;
 
 export default function Home() {
   return <Heading level={2}>Hello from JVDL Design System!</Heading>;
