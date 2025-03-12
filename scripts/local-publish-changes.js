@@ -56,8 +56,9 @@ function createGitTag(version) {
 function pushChanges() {
   console.log("Pushing changes...");
 
-  execSync("git push origin main", { stdio: "inherit" }); // Adjust branch name if necessary
-  execSync("git push origin --tags", { stdio: "inherit" });
+  // Tests should have ran at this point
+  execSync("git push origin main --no-verify", { stdio: "inherit" }); // Adjust branch name if necessary
+  execSync("git push origin --tags --no-verify", { stdio: "inherit" });
 }
 
 function promptUser() {
@@ -97,6 +98,9 @@ async function main() {
 
   console.log("Building App...");
   execSync("npm run build", { stdio: "inherit" });
+
+  console.log("Running Tests...");
+  execSync("npm run prepush:ci", { stdio: "inherit" });
 
   console.log("Staging updated package.json...");
   execSync("git add package.json package-lock.json", { stdio: "inherit" });

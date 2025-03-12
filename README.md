@@ -114,7 +114,7 @@ The project is organized into several key directories:
 
 ## Available Commands
 
-The following commands are available in the [`package.json`](package.json ):
+The following commands are available in the [`package.json`](package.json):
 
 - **`npm run build`**: Cleans the `dist` directory and builds the design system and styles.
 - **`npm run build-storybook`**: Builds the Storybook documentation.
@@ -125,13 +125,15 @@ The following commands are available in the [`package.json`](package.json ):
 - **`npm run dev`**: Starts the Next.js development server.
 - **`npm run lint`**: Runs ESLint to check for code quality issues.
 - **`npm run prepare`**: Initializes Husky for Git hooks.
-- **`npm run publish:local`**: Runs the publish-changes script to run tests, update version, create a git tag, push changes, deploy to firebase, and publish to NPM. **ONLY DO THIS IF CI/CD IS DOWN OR DOES NOT EXIST - RUN ONLY WITH ONE COMMIT CHANGE (`feat`, `fix`, `feat!` only allowed)
+- **`npm run publish:local`**: Runs the publish-changes script to run tests, update version, create a git tag, push changes, deploy to Firebase, and publish to NPM. **ONLY DO THIS IF CI/CD IS DOWN OR DOES NOT EXIST - RUN ONLY WITH ONE COMMIT CHANGE (`feat`, `fix`, `feat!` only allowed)
 - **`npm run start`**: Starts the Storybook server.
 - **`npm run storybook`**: Starts the Storybook development server.
-- **`npm run test`**: Opens Cypress for running tests.
+- **`npm run test`**: Opens Cypress for running tests interactively.
 - **`npm run test:ci`**: Runs Cypress tests in CI mode.
 - **`npm run test:open`**: Opens Cypress for running tests interactively.
 - **`npm run test:open:update`**: Opens Cypress for running tests interactively with snapshot updates.
+- **`npm run test:vr`**: Runs visual regression tests using the `*.vr.cy.ts` files.
+- **`npm run docker:test`**: Builds and runs the Docker container for Cypress tests using the Dockerfile, which by default runs the visual regression tests.
 
 ## Contribution Guidelines
 
@@ -152,6 +154,13 @@ Before you begin, ensure you have the following installed:
    npm install -g firebase-tools
    ```
 
+- **Docker**: For running end-to-end tests in a containerized environment, install Docker Desktop.
+   - **macOS**: Download and install Docker Desktop from [Docker's website](https://www.docker.com/products/docker-desktop).
+   - Once installed, verify by running:
+     ```sh
+     docker --version
+     ```
+     
 Make sure to authenticate with Firebase by running:
    ```sh
    firebase login
@@ -226,6 +235,14 @@ Tests are located in the `cypress/` directory. Follow these guidelines when writ
 3. **Keep tests isolated**: Ensure tests do not depend on each other and can run independently.
 
 For more information on writing tests with Cypress, refer to the [Cypress documentation](https://docs.cypress.io).
+
+### Test File Conventions
+
+- **`*.cy.ts` Files**:  
+  Use these files for standard end-to-end testing with Cypress. They are intended for testing the functionality and behavior of your application.
+
+- **`*.vr.cy.ts` Files**:  
+  These files are used for visual regression (VR) testing. They capture UI snapshots and compare them against a baseline to detect unintended visual changes. Use these tests whenever you need to ensure that UI changes are intentional and that the app’s appearance remains consistent.
 
 ## Deployment Steps
 

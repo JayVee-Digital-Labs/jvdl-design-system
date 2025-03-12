@@ -1,6 +1,3 @@
-if [[ "$1" == "tags" ]]; then
-  exit 0
-fi
-
 npm run lint
+npm run test:vr
 npm run test:ci

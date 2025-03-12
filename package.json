@@ -20,14 +20,17 @@
     "deploy": "firebase deploy",
     "dev": "next dev",
     "lint": "next lint",
+    "list:specs": "docker run --rm -v $(pwd):/app -w /app cypress/included:14.1.0 sh -c 'find . -name \"*.vr.cy.tsx\"'",
     "prepare": "husky",
+    "prepush:ci": "npm run lint && && npm run test:cvr && npm run test:ci",
     "publish:local": "node scripts/local-publish-changes.js",
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "test": "npm run test:open",
-    "test:ci": "cypress run --component",
-    "test:open": "cypress open",
-    "test:open:update": "cypress open --env updateSnapshots=true"
+    "test:ci": "cypress run --component --spec \"**/*.cy.tsx,!**/*.vr.cy.tsx\"",
+    "test:vr": "docker run --rm -v $(pwd):/app -w /app -e RUN_VR=true cypress/included:14.1.0 cypress run --component",
+    "test:open": "cypress open --component",
+    "test:vr:update": "docker run --rm -v $(pwd):/app -w /app -e RUN_VR=true cypress/included:14.1.0 cypress run --component --env updateSnapshots=true"
   },
   "dependencies": {
     "next": "15.2.0",
@@ -88,7 +91,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(typings): fix typings issue",
+  "latestCommit": "feat(styles): add new flex classes and text-align classes",
   "publishConfig": {
     "access": "public"
   }

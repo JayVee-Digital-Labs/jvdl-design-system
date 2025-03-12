@@ -2,12 +2,6 @@ import React from 'react';
 import Link from './link';
 
 describe('Link', () => {
-  it('should render the default link', () => {
-    const testId = 'default-link';
-    cy.mount(<Link href="https://example.com" testId={testId}>This is a default link</Link>);
-    cy.findByTestId(testId).matchImageSnapshot();
-  });
-
   it('should render the link that opens in a new tab', () => {
     const testId = 'new-tab-link';
     cy.mount(<Link href="https://example.com" testId={testId} openInNewTab={true}>This link opens in a new tab</Link>);
