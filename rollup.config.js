@@ -28,7 +28,7 @@ const config = {
     commonjs(),
     url({
       include: ['**/*.svg'],
-      limit: 0,
+      limit: 8192, // Inline SVGs < 8kb
     }),
     postcss({
       extensions: ['.scss'],

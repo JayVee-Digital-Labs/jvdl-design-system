@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -92,7 +92,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(heading): add new prop to display white text\n\nAlso added small doc fixes",
+  "latestCommit": "fix: icon exports",
   "publishConfig": {
     "access": "public"
   }
