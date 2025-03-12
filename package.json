@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.8.8",
+  "version": "1.9.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -88,7 +88,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(typings): fix typings issue",
+  "latestCommit": "feat(styles): add new flex classes and text-align classes",
   "publishConfig": {
     "access": "public"
   }
