@@ -18,32 +18,43 @@ const Template: StoryFn = () => (
   <div>
     <h1 className='heading-1'>Flex Alignment Classes</h1>
     <div className="flex align-left" style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }}>
-      <p>Aligned Left</p>
+      <code>.flex .align-left</code>
     </div>
     <div className="flex align-center" style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }}>
-      <p>Aligned Center</p>
+      <code>.flex .align-center</code>
     </div>
     <div className="flex align-right" style={{ border: '1px solid black', padding: '10px' }}>
-      <p>Aligned Right</p>
+      <code>.flex .align-right</code>
     </div>
     <div className="flex flex-align-left" style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }}>
-      <p>Flex Aligned Left</p>
+      <code>.flex .flex-align-left</code>
     </div>
     <div className="flex flex-align-center" style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }}>
-      <p>Flex Aligned Center</p>
+      <code>.flex .flex-align-center</code>
     </div>
     <div className="flex flex-align-right" style={{ border: '1px solid black', padding: '10px' }}>
-      <p>Flex Aligned Right</p>
+      <code>.flex .flex-align-right</code>
     </div>
     <div className="flex flex-column" style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }}>
-      <p>Flex Column</p>
-      <p>Item 1</p>
-      <p>Item 2</p>
+      <code>.flex .flex-column</code>
+      <code>&nbsp; Item</code>
+      <code>&nbsp; Item</code>
     </div>
     <div className="flex flex-row" style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }}>
-      <p>Flex Row</p>
-      <p>Item 1</p>
-      <p>Item 2</p>
+      <code>.flex .flex-row </code>
+      <code>&nbsp; Item</code>
+      <code>&nbsp; Item</code>
+    </div>
+    <div className="flex flex-align-items-center" style={{ border: '1px solid black', padding: '10px', marginBottom: '10px', height: '100px' }}>
+      <code>.flex .flex-align-items-center</code>
+      <code>&nbsp; Item</code>
+      <code>&nbsp; Item</code>
+    </div>
+    <div className="flex flex-wrap" style={{ border: '1px solid black', padding: '10px', marginBottom: '10px', height: '100px' }}>
+      <code>.flex .flex-wrap</code>
+    </div>
+    <div className="flex-center-all" style={{ border: '1px solid black', padding: '10px', height: '100px' }}>
+      <code>.flex-center-all</code>
     </div>
   </div>
 );

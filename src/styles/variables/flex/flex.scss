@@ -1,3 +1,4 @@
+@use '../text-align/text-align.scss';
 // Alignment classes using flexbox
 
 // Flex display class
@@ -28,4 +29,20 @@
   &.flex-row {
     flex-direction: row;
   }
+
+  &.flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  &.flex-align-items-center {
+    align-items: center;
+  }
+}
+
+.flex-center-all {
+  @extend .flex;
+  @extend .flex-wrap;
+  @extend .flex-align-center;
+  @extend .flex-align-items-center;
+  @extend .text-center;
 }
