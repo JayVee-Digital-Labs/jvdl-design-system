@@ -25,4 +25,8 @@ $heading-styles: (
   .#{$header} {
     @include heading-style(list.nth($styles, 1), list.nth($styles, 2));
   }
+
+  .color-font-primary-white {
+    color: vars.$color-font-primary-white;
+  }
 }

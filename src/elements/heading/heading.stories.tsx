@@ -52,3 +52,24 @@ Heading6.args = {
   level: 6,
   children: 'This is a h6 tag',
 };
+
+const HeadingWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div style={{ backgroundColor: 'black', padding: '10px' }}>
+    {children}
+  </div>
+);
+
+export const HeadingWhite = Template.bind({});
+HeadingWhite.args = {
+  level: 1,
+  children: 'This is a h1 tag with white text',
+  isWhite: true,
+};
+
+HeadingWhite.decorators = [
+  (Story) => (
+    <HeadingWrapper>
+      <Story />
+    </HeadingWrapper>
+  ),
+];

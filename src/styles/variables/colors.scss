@@ -1,9 +1,15 @@
 $color-font-primary: #1E1E1E;
+$color-font-primary-white: #FFFFFF;
 
 :root {
   --color-font-primary: #{$color-font-primary};
+  --color-font-primary-white: #{$color-font-primary-white};
 }
 
 .color-font-primary {
   color: var(--color-font-primary);
+}
+
+.color-font-primary-white {
+  color: var(--color-font-primary-white);
 }
