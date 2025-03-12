@@ -133,6 +133,7 @@ The following commands are available in the [`package.json`](package.json):
 - **`npm run test:open`**: Opens Cypress for running tests interactively.
 - **`npm run test:open:update`**: Opens Cypress for running tests interactively with snapshot updates.
 - **`npm run test:vr`**: Runs visual regression tests using the `*.vr.cy.ts` files.
+- **`npm run test:vr:sppecific`**: Runs visual a pattern regression tests using the `*.vr.cy.ts` files. Example: `npm run test:vr:specific -- **/**/text-align.vr.cy.tsx`
 - **`npm run docker:test`**: Builds and runs the Docker container for Cypress tests using the Dockerfile, which by default runs the visual regression tests.
 
 ## Contribution Guidelines

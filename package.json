@@ -29,6 +29,7 @@
     "test": "npm run test:open",
     "test:ci": "cypress run --component --spec \"**/*.cy.tsx,!**/*.vr.cy.tsx\"",
     "test:vr": "docker run --rm -v $(pwd):/app -w /app -e RUN_VR=true cypress/included:14.1.0 cypress run --component",
+    "test:vr:specific": "docker run --rm -v $(pwd):/app -w /app -e RUN_VR=true cypress/included:14.1.0 cypress run --component --spec",
     "test:open": "cypress open --component",
     "test:vr:update": "docker run --rm -v $(pwd):/app -w /app -e RUN_VR=true cypress/included:14.1.0 cypress run --component --env updateSnapshots=true"
   },
