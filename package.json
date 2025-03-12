@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -92,7 +92,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(flex-styles): add new supporting flex classes",
+  "latestCommit": "fix(social-media-bar): fix background issue",
   "publishConfig": {
     "access": "public"
   }
