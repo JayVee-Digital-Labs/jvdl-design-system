@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.8.8",
+  "version": "1.9.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -22,7 +22,7 @@
     "lint": "next lint",
     "list:specs": "docker run --rm -v $(pwd):/app -w /app cypress/included:14.1.0 sh -c 'find . -name \"*.vr.cy.tsx\"'",
     "prepare": "husky",
-    "prepush:ci": "npm run lint && && npm run test:cvr && npm run test:ci",
+    "prepush:ci": "npm run lint &&npm run test:vr && npm run test:ci",
     "publish:local": "node scripts/local-publish-changes.js",
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
