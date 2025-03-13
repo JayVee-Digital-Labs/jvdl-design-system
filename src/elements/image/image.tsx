@@ -32,17 +32,26 @@ interface ImageProps extends TestId {
 }
 
 export const Image: React.FC<ImageProps> = ({ src, alt, position = 'cover', width, height, testId }) => {
-  const positionClass = `image-${position}`;
 
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className={positionClass}
-      style={{ width, height }}
-      data-testid={testId}
-    />
-  );
+  /**
+   * Note: Because rollup-plugin-dts is having a hard time parsing data-testid from the JSX, we need to create a separate variable for the class name.
+   */
+  const positionClass = `image-${position}`;
+  
+  // Create attributes object separately
+  const attributes: Record<string, unknown> = {
+    src,
+    alt,
+    className: positionClass,
+    style: { width, height }
+  };
+  
+  // Conditionally add data-testid
+  if (testId) {
+    attributes['data-testid'] = testId;
+  }
+
+  return React.createElement('img', attributes);
 };
 
 export default Image;

@@ -36,56 +36,6 @@ export default function Home() {
 }
 ```
 
-### Typings workaround
-
-If you are seeing any typings error, add this to your `global.d.ts`. This will be fixed in the next iteration.
-
-```ts
-declare module '@jayvee-digital-labs/design-system' {
-  import { FC } from 'react';
-  
-  export interface TestId {
-    testId?: string;
-  }
-
-  export interface DropShadowProps {
-    applyDropShadow?: boolean;
-  }
-  
-  export type HeaderLevels = 1 | 2 | 3 | 4 | 5 | 6;
-  
-  export interface HeadingProps extends TestId {
-    level: HeaderLevels;
-    children: React.ReactNode;
-  }
-  
-  export interface ImageProps {
-    src: string;
-    alt: string;
-    width?: number;
-    height?: number;
-  }
-
-  export type AvatarSize = 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
-  
-  export interface AvatarProps extends ImageProps, DropShadowProps {
-    testId?: string;
-    size?: AvatarSize;
-    customSize?: string;
-  }
-
-  export interface LinkProps extends TestId {
-    href: string;
-    children: React.ReactNode;
-    openInNewTab?: boolean;
-  }
-  
-  export const Heading: FC<HeadingProps>;
-  export const Avatar: FC<AvatarProps>;
-  export const Link: FC<LinkProps>;
-}
-```
-
 ## What is a Design System?
 
 A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. It ensures consistency and efficiency in design and development by providing a shared language and set of principles for teams to follow. In this project, the design system is implemented using React, Next.js, and Storybook, providing a robust and scalable solution for building UI components.
