@@ -1,0 +1,8 @@
+{
+  "local-publish": {
+    "npm-test": "prepush:ci",
+    "npm-build-storybook": "build-storybook",
+    "deploy": "firebase deploy",
+    "enable-npm-publish": true
+  }
+}
