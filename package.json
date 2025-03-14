@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.11.2",
+  "version": "1.11.3",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -23,7 +23,7 @@
     "list:specs": "docker run --rm -v $(pwd):/app -w /app cypress/included:14.1.0 sh -c 'find . -name \"*.vr.cy.tsx\"'",
     "prepare": "husky",
     "prepush:ci": "npm run lint &&npm run test:vr && npm run test:ci",
-    "publish:local": "jvdl-local-publish",
+    "local:publish": "jvdl-local-publish",
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "test": "npm run test:open",
@@ -94,7 +94,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(types): fix typing exports\n\nOmg this took forever",
+  "latestCommit": "fix(docs): tidy up docs\n\nThis is to test the new script local publish",
   "publishConfig": {
     "access": "public"
   }

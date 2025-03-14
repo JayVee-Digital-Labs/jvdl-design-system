@@ -2,7 +2,7 @@
 
 ## Description
 
-A Common Design System to be used in JVDL Projects. If you happen to stumble upon this, feel free to use, **But I will not get back to any feature requests, but requests will be evaluated first**. 
+A Common Design System to be used in JVDL Projects. If you happen to stumble upon this, feel free to use, **But I will not get back to any feature requests, bug but requests will be evaluated first**. _This is really for internal use. If you really need to use and modify this project, please fork or contact me_ 
 
 ## How to Use
 
@@ -16,7 +16,7 @@ npm install @jayvee-digital-labs/design-system
 
 ### Importing Styles
 
-In your project, open the app.tx, _app.js_app.tsx, or equivilent add import the compiled CSS
+In your project, open the app.tx, _app.js_app.tsx, global styles, or top level file ans add import the compiled CSS
 
 ```ts
 // Your top level App
