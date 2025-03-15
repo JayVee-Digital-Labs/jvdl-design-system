@@ -21,11 +21,20 @@ export interface HeadingProps extends TestId {
   isWhite?: boolean;
 }
 
-const Heading: React.FC<HeadingProps> = ({ level, children, testId, isWhite = false }) => {
+const Heading: React.FC<HeadingProps> = ({
+  level,
+  children,
+  testId,
+  isWhite = false
+}) => {
   const Tag = `h${level}`;
   const className = `heading-${level} ${isWhite ? 'color-font-primary-white' : ''}`;
 
-  return React.createElement(Tag, { className, 'data-testid': testId }, children);
+  return React.createElement(
+    Tag,
+    { className, 'data-testid': testId },
+    children
+  );
 };
 
 export default Heading;

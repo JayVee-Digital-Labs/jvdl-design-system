@@ -10,20 +10,21 @@ export default {
   parameters: {
     docs: {
       description: {
-        story: 'Avatar component that displays a circular image with different sizes and optional drop shadow.',
-      },
-    },
-  },
+        story:
+          'Avatar component that displays a circular image with different sizes and optional drop shadow.'
+      }
+    }
+  }
 } as Meta;
 
-const Template: StoryFn<AvatarProps> = (args) => <Avatar {...args} />;
+const Template: StoryFn<AvatarProps> = args => <Avatar {...args} />;
 
 export const Small = Template.bind({});
 Small.args = {
   src: '/demo-assets/dog.jpg',
   alt: 'Small Avatar',
   size: 'small',
-  applyDropShadow: true,
+  applyDropShadow: true
 };
 
 export const Medium = Template.bind({});
@@ -31,7 +32,7 @@ Medium.args = {
   src: '/demo-assets/dog.jpg',
   alt: 'Medium Avatar',
   size: 'medium',
-  applyDropShadow: true,
+  applyDropShadow: true
 };
 
 export const Large = Template.bind({});
@@ -39,7 +40,7 @@ Large.args = {
   src: '/demo-assets/dog.jpg',
   alt: 'Large Avatar',
   size: 'large',
-  applyDropShadow: true,
+  applyDropShadow: true
 };
 
 export const CustomSize = Template.bind({});
@@ -47,7 +48,7 @@ CustomSize.args = {
   src: '/demo-assets/dog.jpg',
   alt: 'Custom Size Avatar',
   customSize: '100px',
-  applyDropShadow: true,
+  applyDropShadow: true
 };
 
 export const NoDropShadow = Template.bind({});
@@ -55,5 +56,5 @@ NoDropShadow.args = {
   src: '/demo-assets/dog.jpg',
   alt: 'No Drop Shadow Avatar',
   size: 'medium',
-  applyDropShadow: false,
+  applyDropShadow: false
 };

@@ -20,25 +20,23 @@ export interface SocialMediaBarProps extends TestId, DropShadowProps {
 
 /**
  * SocialMediaBar component that displays a list of social media icons with links.
- * 
+ *
  * @param {SocialMediaBarProps} props - The props for the SocialMediaBar component.
  * @returns {JSX.Element} The rendered SocialMediaBar component.
  */
-const SocialMediaBar: React.FC<SocialMediaBarProps> = ({ configs, testId, applyDropShadow = true }) => {
+const SocialMediaBar: React.FC<SocialMediaBarProps> = ({
+  configs,
+  testId,
+  applyDropShadow = true
+}) => {
   const dropShadowClass = applyDropShadow ? 'drop-shadow' : '';
 
   return (
     <div className={`social-media-bar ${dropShadowClass}`} data-testid={testId}>
       {configs.map((config, index) => (
         <div key={index} className={`social-media-bar__item`}>
-          <Link
-            href={config.href}
-            testId={`${testId}-link-${config.icon}`}
-          >
-            <Icon
-              icon={config.icon}
-              testId={`${testId}-icon-${config.icon}`}
-            />
+          <Link href={config.href} testId={`${testId}-link-${config.icon}`}>
+            <Icon icon={config.icon} testId={`${testId}-icon-${config.icon}`} />
           </Link>
         </div>
       ))}

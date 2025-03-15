@@ -6,7 +6,7 @@
     "emitDeclarationOnly": true,
     "jsx": "react-jsx",
     "skipLibCheck": true,
-    "incremental": false 
+    "incremental": false
   },
   "include": ["src/**/*"],
   "exclude": [

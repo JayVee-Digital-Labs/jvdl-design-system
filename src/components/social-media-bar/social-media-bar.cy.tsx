@@ -4,7 +4,7 @@ import { mount } from 'cypress/react';
 import configs from '@/components/social-media-bar/test-config';
 
 describe('SocialMediaBar', () => {
-  configs.forEach((config) => {
+  configs.forEach(config => {
     it(`should render the ${config.icon} icon with the correct href`, () => {
       const testId = `social-media-bar-${config.icon}`;
       mount(<SocialMediaBar configs={[config]} testId={testId} />);

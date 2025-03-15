@@ -16,17 +16,26 @@ export interface AvatarProps extends ImageProps, DropShadowProps {
 
 /**
  * Avatar component that displays a circular image.
- * 
+ *
  * @param {AvatarProps} props - The props for the Avatar component.
  * @returns {JSX.Element} The rendered Avatar component.
  */
-const Avatar: React.FC<AvatarProps> = ({ testId, size = 'medium', customSize, applyDropShadow = true, ...imageProps }) => {
+const Avatar: React.FC<AvatarProps> = ({
+  testId,
+  size = 'medium',
+  customSize,
+  applyDropShadow = true,
+  ...imageProps
+}) => {
   const sizeClass = customSize ? '' : `avatar--${size}`;
   const style = customSize ? { width: customSize, height: customSize } : {};
   const dropShadowClass = applyDropShadow ? 'drop-shadow' : '';
 
   return (
-    <div className={`avatar ${sizeClass} ${dropShadowClass}`} data-testid={testId} style={style}>
+    <div
+      className={`avatar ${sizeClass} ${dropShadowClass}`}
+      data-testid={testId}
+      style={style}>
       <Image {...imageProps} />
     </div>
   );

@@ -3,12 +3,30 @@
 @use '../variables/index' as vars;
 
 $heading-styles: (
-  heading-1: (map.get(vars.$font-sizes, 'heading-1'), map.get(vars.$font-weights, 'heading-extra-bold')),
-  heading-2: (map.get(vars.$font-sizes, 'heading-2'), map.get(vars.$font-weights, 'heading-bold')),
-  heading-3: (map.get(vars.$font-sizes, 'heading-3'), map.get(vars.$font-weights, 'heading-normal')),
-  heading-4: (map.get(vars.$font-sizes, 'heading-4'), map.get(vars.$font-weights, 'heading-light')),
-  heading-5: (map.get(vars.$font-sizes, 'heading-5'), map.get(vars.$font-weights, 'heading-light')),
-  heading-6: (map.get(vars.$font-sizes, 'heading-6'), map.get(vars.$font-weights, 'heading-light'))
+  heading-1: (
+    map.get(vars.$font-sizes, 'heading-1'),
+    map.get(vars.$font-weights, 'heading-extra-bold')
+  ),
+  heading-2: (
+    map.get(vars.$font-sizes, 'heading-2'),
+    map.get(vars.$font-weights, 'heading-bold')
+  ),
+  heading-3: (
+    map.get(vars.$font-sizes, 'heading-3'),
+    map.get(vars.$font-weights, 'heading-normal')
+  ),
+  heading-4: (
+    map.get(vars.$font-sizes, 'heading-4'),
+    map.get(vars.$font-weights, 'heading-light')
+  ),
+  heading-5: (
+    map.get(vars.$font-sizes, 'heading-5'),
+    map.get(vars.$font-weights, 'heading-light')
+  ),
+  heading-6: (
+    map.get(vars.$font-sizes, 'heading-6'),
+    map.get(vars.$font-weights, 'heading-light')
+  )
 );
 
 @mixin heading-style($font-size, $font-weight-header) {

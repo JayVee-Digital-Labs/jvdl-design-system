@@ -6,17 +6,20 @@
   display: flex;
 
   // Align left
-  &.align-left, &.flex-align-left {
+  &.align-left,
+  &.flex-align-left {
     justify-content: flex-start;
   }
 
   // Align center
-  &.align-center, &.flex-align-center {
+  &.align-center,
+  &.flex-align-center {
     justify-content: center;
   }
 
   // Align right
-  &.align-right, &.flex-align-right {
+  &.align-right,
+  &.flex-align-right {
     justify-content: flex-end;
   }
 

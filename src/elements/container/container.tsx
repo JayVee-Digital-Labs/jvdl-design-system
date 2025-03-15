@@ -1,8 +1,7 @@
 import React from 'react';
-import { TestId } from '@/types/test-id'
+import { TestId } from '@/types/test-id';
 
 export interface ContainerProps extends TestId {
-
   /**
    * Optional margin-left CSS value
    */
@@ -31,21 +30,26 @@ export interface ContainerProps extends TestId {
 
 export const defaultMargin = '20px';
 
-const Container: React.FC<ContainerProps> = ({ 
-  marginLeft = defaultMargin, 
-  marginRight = defaultMargin, 
-  marginTop = defaultMargin, 
-  marginBottom = defaultMargin, 
-  testId, 
-  children }) => {
+const Container: React.FC<ContainerProps> = ({
+  marginLeft = defaultMargin,
+  marginRight = defaultMargin,
+  marginTop = defaultMargin,
+  marginBottom = defaultMargin,
+  testId,
+  children
+}) => {
   const containerStyle = {
     marginLeft,
     marginRight,
     marginTop,
-    marginBottom,
+    marginBottom
   };
 
-  return <div style={containerStyle} data-testid={testId}>{children}</div>;
+  return (
+    <div style={containerStyle} data-testid={testId}>
+      {children}
+    </div>
+  );
 };
 
 export default Container;

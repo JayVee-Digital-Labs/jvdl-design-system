@@ -9,13 +9,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        story: 'The Image component renders an image with customizable position and dimensions.',
-      },
-    },
-  },
+        story:
+          'The Image component renders an image with customizable position and dimensions.'
+      }
+    }
+  }
 } as Meta;
 
-const Template: StoryFn<ImageProps> = (args) => <Image {...args} />;
+const Template: StoryFn<ImageProps> = args => <Image {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -23,5 +24,5 @@ Default.args = {
   alt: 'Reference Image',
   position: 'cover',
   width: '300px',
-  height: '300px',
+  height: '300px'
 };

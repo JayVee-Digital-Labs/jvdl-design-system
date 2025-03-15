@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 import path from 'path';
 
 const nextConfig: NextConfig = {
@@ -17,19 +17,19 @@ const nextConfig: NextConfig = {
             fallback: 'file-loader',
             publicPath: '/_next/static/media/',
             outputPath: 'static/media/',
-            name: '[name].[hash].[ext]',
-          },
-        },
-      ],
+            name: '[name].[hash].[ext]'
+          }
+        }
+      ]
     });
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src')
     };
 
     return config;
-  },
+  }
 };
 
 export default nextConfig;

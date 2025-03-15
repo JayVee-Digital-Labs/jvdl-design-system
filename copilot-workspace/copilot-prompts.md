@@ -3,6 +3,7 @@
 ## New Component Props
 
 This is the base prompt. Add and tweak
+
 ```
 Create me a <COMPONENT_NAME> with the following requirements:
 - <REQUIREMENTS>

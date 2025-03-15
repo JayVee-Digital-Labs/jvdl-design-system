@@ -17,18 +17,18 @@ const baseConfig = {
   input: 'src/index.ts',
   output: [
     { file: 'dist/index.cjs', format: 'cjs', sourcemap: true },
-    { file: 'dist/index.esm.js', format: 'esm', sourcemap: true },
+    { file: 'dist/index.esm.js', format: 'esm', sourcemap: true }
   ],
   external: ['react', 'react-dom'],
   plugins: [
     alias({
-      entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+      entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
     }),
     resolve(),
     commonjs(),
     url({
       include: ['**/*.svg'],
-      limit: 8192,
+      limit: 8192
     }),
     postcss({
       extensions: ['.scss'],
@@ -37,9 +37,9 @@ const baseConfig = {
     }),
     terser(),
     typescript({
-      tsconfig: './tsconfig.build.json',
-    }),
-  ],
+      tsconfig: './tsconfig.build.json'
+    })
+  ]
 };
 
 // -- 2) DTS config: rewrites imports plus excludes .scss
@@ -48,19 +48,16 @@ const dtsConfig = {
   output: [{ file: 'dist/index.d.ts', format: 'es' }],
   plugins: [
     dts({
-      exclude: [
-        '**/*.scss',  
-        '**/*.css',
-      ],
+      exclude: ['**/*.scss', '**/*.css'],
       compilerOptions: {
         baseUrl: '.',
         paths: {
-          '@/*': ['src/*'],
+          '@/*': ['src/*']
         },
-        skipLibCheck: true,
-      },
-    }),
-  ],
+        skipLibCheck: true
+      }
+    })
+  ]
 };
 
 export default [baseConfig, dtsConfig];

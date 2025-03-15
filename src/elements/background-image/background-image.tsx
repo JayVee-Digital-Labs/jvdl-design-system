@@ -19,11 +19,19 @@ export interface BackgroundImageProps extends TestId {
   children?: React.ReactNode;
 }
 
-const BackgroundImage: React.FC<BackgroundImageProps> = ({ source, opacity = 0.4, testId, children }) => {
+const BackgroundImage: React.FC<BackgroundImageProps> = ({
+  source,
+  opacity = 0.4,
+  testId,
+  children
+}) => {
   return (
-    <div className="background-image" data-testid={testId} style={{ backgroundImage: `url(${source})` }}>
-      <div className="background-image__overlay" style={{ opacity }}></div>
-      <div className="background-image__content">{children}</div>
+    <div
+      className='background-image'
+      data-testid={testId}
+      style={{ backgroundImage: `url(${source})` }}>
+      <div className='background-image__overlay' style={{ opacity }}></div>
+      <div className='background-image__content'>{children}</div>
     </div>
   );
 };

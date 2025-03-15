@@ -6,13 +6,18 @@ import icons, { IconName } from './icon-map';
 export default {
   title: 'Elements/Icon',
   component: Icon,
-  tags: ['autodocs'],
+  tags: ['autodocs']
 } as Meta;
 
 const Template: StoryFn<typeof Icon> = (args: IconProps) => (
   <div>
-    {Object.keys(icons).map((iconName) => (
-      <Icon {...args} icon={iconName as IconName} key={iconName} testId={`icon-${iconName}`} />
+    {Object.keys(icons).map(iconName => (
+      <Icon
+        {...args}
+        icon={iconName as IconName}
+        key={iconName}
+        testId={`icon-${iconName}`}
+      />
     ))}
   </div>
 );
@@ -20,5 +25,5 @@ const Template: StoryFn<typeof Icon> = (args: IconProps) => (
 export const AllIcons = Template.bind({});
 AllIcons.args = {
   size: '24px',
-  color: 'black',
+  color: 'black'
 };

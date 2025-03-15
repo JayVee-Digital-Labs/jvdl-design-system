@@ -5,7 +5,7 @@ describe('BackgroundImage', () => {
   let testImage: string;
 
   beforeEach(() => {
-    cy.fixture('background-image.jpg').then((image) => {
+    cy.fixture('background-image.jpg').then(image => {
       testImage = `data:image/jpeg;base64,${image}`;
     });
   });
@@ -14,7 +14,9 @@ describe('BackgroundImage', () => {
     const testId = 'background-image-default';
     cy.mount(
       <BackgroundImage source={testImage} testId={testId}>
-        <div style={{ color: 'white', textAlign: 'center', paddingTop: '50%' }}>Default Background Image</div>
+        <div style={{ color: 'white', textAlign: 'center', paddingTop: '50%' }}>
+          Default Background Image
+        </div>
       </BackgroundImage>
     );
     cy.findByTestId(testId).matchImageSnapshot();
@@ -24,7 +26,9 @@ describe('BackgroundImage', () => {
     const testId = 'background-image-custom-opacity';
     cy.mount(
       <BackgroundImage source={testImage} opacity={0.7} testId={testId}>
-        <div style={{ color: 'white', textAlign: 'center', paddingTop: '50%' }}>Custom Opacity Background Image</div>
+        <div style={{ color: 'white', textAlign: 'center', paddingTop: '50%' }}>
+          Custom Opacity Background Image
+        </div>
       </BackgroundImage>
     );
     cy.findByTestId(testId).matchImageSnapshot();

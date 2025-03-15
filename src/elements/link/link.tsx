@@ -18,9 +18,18 @@ export interface LinkProps extends TestId {
   openInNewTab?: boolean;
 }
 
-const Link: React.FC<LinkProps> = ({ href, children, testId, openInNewTab = true }) => {
+const Link: React.FC<LinkProps> = ({
+  href,
+  children,
+  testId,
+  openInNewTab = true
+}) => {
   return (
-    <a href={href} target={openInNewTab ? '_blank' : '_self'} rel="noopener noreferrer" data-testid={testId}>
+    <a
+      href={href}
+      target={openInNewTab ? '_blank' : '_self'}
+      rel='noopener noreferrer'
+      data-testid={testId}>
       {children}
     </a>
   );

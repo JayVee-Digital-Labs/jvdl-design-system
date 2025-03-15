@@ -2,7 +2,7 @@
 
 ## Description
 
-A Common Design System to be used in JVDL Projects. If you happen to stumble upon this, feel free to use, **But I will not get back to any feature requests, bug but requests will be evaluated first**. _This is really for internal use. If you really need to use and modify this project, please fork or contact me_ 
+A Common Design System to be used in JVDL Projects. If you happen to stumble upon this, feel free to use, **But I will not get back to any feature requests, bug but requests will be evaluated first**. _This is really for internal use. If you really need to use and modify this project, please fork or contact me_
 
 ## How to Use
 
@@ -16,7 +16,7 @@ npm install @jayvee-digital-labs/design-system
 
 ### Importing Styles
 
-In your project, open the app.tx, _app.js_app.tsx, global styles, or top level file ans add import the compiled CSS
+In your project, open the app.tx, \_app.js_app.tsx, global styles, or top level file ans add import the compiled CSS
 
 ```ts
 // Your top level App
@@ -44,7 +44,7 @@ A design system is a collection of reusable components, guided by clear standard
 
 The project is organized into several key directories:
 
-### [`src`](src )
+### [`src`](src)
 
 - **components/**: Contains reusable React components.
 - **elements/**: Contains basic UI elements like buttons, inputs, etc.
@@ -75,7 +75,7 @@ The following commands are available in the [`package.json`](package.json):
 - **`npm run dev`**: Starts the Next.js development server.
 - **`npm run lint`**: Runs ESLint to check for code quality issues.
 - **`npm run prepare`**: Initializes Husky for Git hooks.
-- **`npm run publish:local`**: Runs the publish-changes script to run tests, update version, create a git tag, push changes, deploy to Firebase, and publish to NPM. **ONLY DO THIS IF CI/CD IS DOWN OR DOES NOT EXIST - RUN ONLY WITH ONE COMMIT CHANGE (`feat`, `fix`, `feat!` only allowed)
+- **`npm run publish:local`**: Runs the publish-changes script to run tests, update version, create a git tag, push changes, deploy to Firebase, and publish to NPM. \*\*ONLY DO THIS IF CI/CD IS DOWN OR DOES NOT EXIST - RUN ONLY WITH ONE COMMIT CHANGE (`feat`, `fix`, `feat!` only allowed)
 - **`npm run start`**: Starts the Storybook server.
 - **`npm run storybook`**: Starts the Storybook development server.
 - **`npm run test`**: Opens Cypress for running tests interactively.
@@ -95,27 +95,30 @@ We welcome contributions to the JVDL Design System! Please follow these guidelin
 Before you begin, ensure you have the following installed:
 
 - **Node.js**: It's recommended to use Node Version Manager (nvm) to manage Node.js versions. You can install the required Node.js version specified in the `.nvmrc` file by running:
-   ```sh
-   nvm install
-   nvm use
-   ```
+
+  ```sh
+  nvm install
+  nvm use
+  ```
 
 - **Firebase CLI**: To deploy Storybook properly, you will need the Firebase CLI. Install it globally using npm:
-   ```sh
-   npm install -g firebase-tools
-   ```
+
+  ```sh
+  npm install -g firebase-tools
+  ```
 
 - **Docker**: For running end-to-end tests in a containerized environment, install Docker Desktop.
-   - **macOS**: Download and install Docker Desktop from [Docker's website](https://www.docker.com/products/docker-desktop).
-   - Once installed, verify by running:
-     ```sh
-     docker --version
-     ```
-     
+  - **macOS**: Download and install Docker Desktop from [Docker's website](https://www.docker.com/products/docker-desktop).
+  - Once installed, verify by running:
+    ```sh
+    docker --version
+    ```
+
 Make sure to authenticate with Firebase by running:
-   ```sh
-   firebase login
-   ```
+
+```sh
+firebase login
+```
 
 ### Forking the Repository
 
@@ -133,7 +136,6 @@ To start developing with the JVDL Design System, follow these steps:
    ```
 2. Run `npm install`
 3. Start the Development Server by running `npm start`
-
 
 ### Create a branch
 
@@ -171,6 +173,7 @@ To run the tests, you can use the following commands:
 Snapshot testing is used to capture the rendered output of components and compare them to a reference snapshot. This helps in detecting any unexpected changes in the UI.
 
 To update the snapshots, run:
+
 ```sh
 npm run test:open:update
 ```
@@ -198,15 +201,18 @@ For more information on writing tests with Cypress, refer to the [Cypress docume
 ## Deployment Steps
 
 1. Initialize Firebase in your project:
+
    ```sh
    firebase init
    ```
+
    - Select "Hosting" and follow the prompts to set up your project.
    - Choose the existing Firebase project or create a new one.
    - Set the public directory to `build` (or the directory where your build output is located).
    - Configure as a single-page app (if applicable).
 
 2. Build your project:
+
    ```sh
    npm run build
    ```
