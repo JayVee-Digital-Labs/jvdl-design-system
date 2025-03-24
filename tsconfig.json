@@ -23,7 +23,8 @@
     "cypress",
     "@testing-library/cypress",
     "@simonsmith/cypress-image-snapshot/types",
-    "cypress-react-selector"
+    "cypress-react-selector",
+    "cypress-real-events"
   ],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

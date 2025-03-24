@@ -1,0 +1,15 @@
+.color-transition {
+  display: inline-block;
+  transition: color var(--hover-speed, 0.3s) ease-in-out;
+
+  &:hover {
+    color: var(--hover-color, inherit);
+    animation-name: var(--hover-animation, none);
+    animation-duration: var(--hover-speed, 0.3s);
+    // Ensure child elements inherit the hover color
+    * {
+      color: inherit;
+      transition: inherit;
+    }
+  }
+}

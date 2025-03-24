@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.11.3",
+  "version": "1.12.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -69,6 +69,7 @@
     "@vitest/browser": "^3.0.7",
     "@vitest/coverage-v8": "^3.0.7",
     "cypress": "^14.1.0",
+    "cypress-real-events": "^1.14.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
@@ -97,7 +98,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(docs): tidy up docs\n\nThis is to test the new script local publish",
+  "latestCommit": "feat(animation): add color fade animation\n\n- Adds base animation\n- New Animation Class\n- Cypress Real Events\n- SKIPPED TEST: see comment in test",
   "publishConfig": {
     "access": "public"
   }

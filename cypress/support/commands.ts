@@ -38,6 +38,7 @@
 
 import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command';
 import '@testing-library/cypress/add-commands';
+import 'cypress-real-events';
 
 // Snapshot testing
 addMatchImageSnapshotCommand();
