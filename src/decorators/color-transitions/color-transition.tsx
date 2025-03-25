@@ -9,36 +9,39 @@ export interface ColorTransitionProps extends TestId, React.PropsWithChildren {
   animation?: string;
 
   /**
-   * Text color to transition to on hover.
+   * Text color to apply.
    */
   color?: string;
 
   /**
-   * Duration of the animation in milliseconds.
+   * Duration of the transition in milliseconds.
    */
   speed?: number;
+
+  /**
+   * Whether to use hover mode (default) or controlled mode.
+   */
+  mode?: 'hover' | 'controlled';
 }
 
 const ColorTransition: React.FC<ColorTransitionProps> = ({
   animation = 'fade-in',
   color,
   speed = 100,
+  mode = 'hover',
   testId,
   children
 }) => {
   const style = {
     '--hover-color': color,
     '--hover-animation': animation,
-    '--hover-speed': `${speed}ms`
+    '--hover-speed': `${speed}ms`,
+    ...(mode === 'controlled' && color ? { color: color } : {})
   } as React.CSSProperties;
-
-  if (color) {
-    style.color = 'var(--hover-color)';
-  }
 
   return (
     <div
-      className={`color-transition ${!color ? 'color-primary' : ''}`}
+      className={`color-transition ${mode === 'controlled' ? 'color-transition--controlled' : ''}`}
       style={style}
       data-testid={testId}>
       {children}
