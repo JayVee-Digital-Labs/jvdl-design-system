@@ -25,20 +25,3 @@ Finally, create me a cypress visual regression test with it's example uses from 
 Additional information.
 - Please use path aliasing. Know that `@` is a reference to the source directory.
 ```
-
-Create me a Fade Out Decorator with the following requirements:
-
-- It should take in the children and use a css fade out animation
-- Props interface should extend test ID Interface
-- It should add javadoc comments to the props interface, not jsdocs annotations
-- Should export props interface.
-- For any styles, make them follow atomic style so later on I can easily import them into a SCSS File
-  See `color-transition.tsx` for code style preferences
-
-Next, create a storybook file that uses the component and demonstrate it's uses. Use `color-transition.tsx.stories.tsx` as a example. Requirements are:
-
-- Please be sure to add the tags `autodocs` so story can autogenerate the docs from the component props comments
-
-Additional information.
-
-- Please use path aliasing. Know that `@` is a reference to the source directory

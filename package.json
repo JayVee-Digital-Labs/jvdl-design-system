@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -98,7 +98,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(fade-out): add new fade out animation\n\nAdded with out test due to snapshot real hover issue",
+  "latestCommit": "feat(scroll-fade): add new component\n\nAlso add a new prop for fade to make sure that it is backwards compatible",
   "publishConfig": {
     "access": "public"
   }
