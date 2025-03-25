@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -98,7 +98,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(animation): add color fade animation\n\n- Adds base animation\n- New Animation Class\n- Cypress Real Events\n- SKIPPED TEST: see comment in test",
+  "latestCommit": "feat(fade-out): add new fade out animation\n\nAdded with out test due to snapshot real hover issue",
   "publishConfig": {
     "access": "public"
   }

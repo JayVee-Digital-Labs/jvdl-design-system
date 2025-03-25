@@ -1,0 +1,8 @@
+.fade-out {
+  opacity: 1;
+  transition: opacity var(--fade-out-duration) ease-in-out;
+
+  &:hover {
+    opacity: 0;
+  }
+}
