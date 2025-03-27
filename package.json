@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -98,7 +98,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(scroll-color-transition): add base component\n\nNo test because of issue said three commits ago",
+  "latestCommit": "feat(negate-decorator): create base\n\nThis will need a lot more work in the future, this is a very complicated component that AI created.",
   "publishConfig": {
     "access": "public"
   }
