@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { TestId } from '@/types/test-id';
-import '@/styles/animations/negate.scss';
 
 /**
  * Props for the NegateAnimationDecorator component.
@@ -70,7 +69,8 @@ const NegateAnimation: React.FC<NegateAnimationProps> = ({
   // Create the portal container when component mounts
   useEffect(() => {
     const container = document.createElement('div');
-    container.className = `negate-animation__portal ${className}`;
+    // Use Tailwind classes directly
+    container.className = `fixed z-50 pointer-events-auto ${className}`;
     container.dataset.testid = testId;
     document.body.appendChild(container);
     setPortalContainer(container);
@@ -145,8 +145,7 @@ const NegateAnimation: React.FC<NegateAnimationProps> = ({
         bottom: fixedPosition === 'bottom' ? `${fixedOffset}px` : 'auto',
         left: `${position.left}px`,
         width: `${position.width}px`,
-        height: `${position.height}px`,
-        zIndex: '1000'
+        height: `${position.height}px`
       });
     } else {
       // Normal positioning that follows the placeholder
@@ -155,8 +154,7 @@ const NegateAnimation: React.FC<NegateAnimationProps> = ({
         top: `${position.top}px`,
         left: `${position.left}px`,
         width: `${position.width}px`,
-        height: `${position.height}px`,
-        zIndex: '1000'
+        height: `${position.height}px`
       });
     }
   }, [portalContainer, position, fixed, isFixed, fixedPosition, fixedOffset]);
@@ -165,9 +163,8 @@ const NegateAnimation: React.FC<NegateAnimationProps> = ({
   const placeholder = (
     <div
       id={`negate-placeholder-${testId}`}
-      className='negate-animation__placeholder'
+      className='inline-block invisible' // Tailwind classes for the placeholder
       style={{
-        visibility: 'hidden',
         width: '100%',
         height: '100%'
       }}
@@ -182,7 +179,9 @@ const NegateAnimation: React.FC<NegateAnimationProps> = ({
       {portalContainer &&
         ReactDOM.createPortal(
           <div
-            className={`negate-animation__content ${isFixed ? 'negate-animation__content--fixed' : ''}`}>
+            className={`opacity-100! animation-none! transition-none! isolate relative ${
+              isFixed ? 'shadow-md' : ''
+            }`}>
             {children}
           </div>,
           portalContainer
