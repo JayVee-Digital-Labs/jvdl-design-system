@@ -32,6 +32,7 @@ const Icon: React.FC<IconProps> = ({
       style={{
         width: size,
         height: size,
+        display: 'inline', // Ensures no extra space below the image
         filter: color === 'white' ? 'invert(100%)' : 'none'
       }}
     />

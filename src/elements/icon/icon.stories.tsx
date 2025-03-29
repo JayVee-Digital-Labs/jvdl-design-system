@@ -11,6 +11,8 @@ export default {
 
 const Template: StoryFn<typeof Icon> = (args: IconProps) => (
   <div>
+    <p>All available icons:</p>
+
     {Object.keys(icons).map(iconName => (
       <Icon
         {...args}
@@ -22,8 +24,21 @@ const Template: StoryFn<typeof Icon> = (args: IconProps) => (
   </div>
 );
 
+const TemplateIndividual: StoryFn<typeof Icon> = (args: IconProps) => (
+  <div>
+    <Icon {...args} />
+  </div>
+);
+
 export const AllIcons = Template.bind({});
 AllIcons.args = {
   size: '24px',
   color: 'black'
+};
+
+export const IndividualIcon = TemplateIndividual.bind({});
+AllIcons.args = {
+  size: '24px',
+  color: 'black',
+  icon: 'email'
 };
