@@ -1,4 +1,5 @@
 /// <reference types="@testing-library/cypress" />
+import '@/styles/globals.css';
 // ***********************************************************
 // This example support/component.ts is processed and
 // loaded automatically before your test files.
