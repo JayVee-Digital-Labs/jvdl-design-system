@@ -1,6 +1,5 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-// import '@/styles/image/background-image.scss';
 
 export interface BackgroundImageProps extends TestId {
   /**
@@ -27,11 +26,15 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
 }) => {
   return (
     <div
-      className='background-image'
+      className='fixed top-0 left-0 w-full h-full bg-cover bg-center -z-10'
       data-testid={testId}
       style={{ backgroundImage: `url(${source})` }}>
-      <div className='background-image__overlay' style={{ opacity }}></div>
-      <div className='background-image__content'>{children}</div>
+      <div
+        className='absolute top-0 left-0 w-full h-full bg-black'
+        style={{ opacity }}></div>
+      <div className='relative z-10 flex justify-center items-center w-full h-full'>
+        {children}
+      </div>
     </div>
   );
 };
