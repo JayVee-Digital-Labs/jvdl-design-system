@@ -1,10 +1,9 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-// import '@/styles/animations/color-transition.scss';
 
 export interface ColorTransitionProps extends TestId, React.PropsWithChildren {
   /**
-   * CSS animation to apply to the text.
+   * Easing function to apply to the transition (e.g., 'ease', 'ease-in', 'ease-out', 'linear').
    */
   animation?: string;
 
@@ -25,23 +24,29 @@ export interface ColorTransitionProps extends TestId, React.PropsWithChildren {
 }
 
 const ColorTransition: React.FC<ColorTransitionProps> = ({
-  animation = 'fade-in',
+  animation = 'ease-in',
   color,
   speed = 100,
   mode = 'hover',
   testId,
   children
 }) => {
+  const transitionDuration = `${speed}ms`;
+
   const style = {
     '--hover-color': color,
-    '--hover-animation': animation,
-    '--hover-speed': `${speed}ms`,
+    '--hover-speed': transitionDuration,
+    '--hover-timing': animation,
     ...(mode === 'controlled' && color ? { color: color } : {})
   } as React.CSSProperties;
 
   return (
     <div
-      className={`color-transition ${mode === 'controlled' ? 'color-transition--controlled' : ''}`}
+      className={`inline-block ${
+        mode === 'controlled'
+          ? 'transition-colors duration-[var(--hover-speed)] ease-[var(--hover-timing)]'
+          : 'hover:text-[var(--hover-color)] transition-colors duration-[var(--hover-speed)] ease-[var(--hover-timing)]'
+      } [&>*]:text-inherit [&>*]:transition-inherit`}
       style={style}
       data-testid={testId}>
       {children}

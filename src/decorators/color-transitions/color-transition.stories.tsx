@@ -27,8 +27,8 @@ const Template: StoryFn<ColorTransitionProps> = args => (
 
 export const HoverFadeInPurple = Template.bind({});
 HoverFadeInPurple.args = {
-  animation: 'fade-in',
-  color: '#2EA885',
-  speed: 500,
+  animation: 'ease-in',
+  color: 'purple',
+  speed: 200,
   testId: 'hover-fade-in-purple'
 };
