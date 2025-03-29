@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-import '@/styles/heading/heading.scss';
+// import '@/styles/heading/heading.scss';
 
 export type HeaderLevels = 1 | 2 | 3 | 4 | 5 | 6;
 

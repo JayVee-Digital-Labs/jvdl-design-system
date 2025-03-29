@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-import '@/styles/animations/color-transition.scss';
+// import '@/styles/animations/color-transition.scss';
 
 export interface ColorTransitionProps extends TestId, React.PropsWithChildren {
   /**

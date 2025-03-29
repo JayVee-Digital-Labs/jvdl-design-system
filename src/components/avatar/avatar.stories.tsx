@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Avatar, { AvatarProps } from '@/components/avatar/avatar';
-import '@/styles/image/avatar.scss';
 
 export default {
   tags: ['autodocs'],

@@ -4,7 +4,7 @@ import { IconName } from '@/elements/icon/icon-map';
 import Link from '@/elements/link/link';
 import { TestId } from '@/types/test-id';
 import { DropShadowProps } from '@/types/drop-shadow';
-import '@/styles/components/social-media-bar.scss';
+// import '@/styles/components/social-media-bar.scss';
 
 export interface SocialMediaConfig {
   /** The name of the icon to render */

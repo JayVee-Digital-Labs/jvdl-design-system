@@ -1,7 +1,6 @@
 import React from 'react';
 import Image, { ImageProps } from '@/elements/image/image';
 import { DropShadowProps } from '@/types/drop-shadow';
-import '@/styles/image/avatar.scss';
 
 export type AvatarSize = 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 
@@ -27,16 +26,28 @@ const Avatar: React.FC<AvatarProps> = ({
   applyDropShadow = true,
   ...imageProps
 }) => {
-  const sizeClass = customSize ? '' : `avatar--${size}`;
+  // Matching exact pixel dimensions from the SCSS file
+  const sizeClasses = {
+    small: 'w-16 h-16', // 32px
+    medium: 'w-32 h-32', // 64px
+    large: 'w-48 h-48', // 96px
+    xlarge: 'w-64 h-64', // 128px
+    xxlarge: 'w-128 h-128' // 160px
+  };
+
+  const sizeClass = customSize ? '' : sizeClasses[size];
   const style = customSize ? { width: customSize, height: customSize } : {};
-  const dropShadowClass = applyDropShadow ? 'drop-shadow' : '';
+  const shadowClass = applyDropShadow ? 'shadow-2xl' : '';
 
   return (
     <div
-      className={`avatar ${sizeClass} ${dropShadowClass}`}
+      className={`rounded-full overflow-hidden inline-block relative ${sizeClass} ${shadowClass}`}
       data-testid={testId}
       style={style}>
-      <Image {...imageProps} />
+      <Image
+        additionalClassNames='w-full h-full object-cover absolute top-0 left-0'
+        {...imageProps}
+      />
     </div>
   );
 };

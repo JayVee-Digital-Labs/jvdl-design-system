@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-import '@/styles/image/background-image.scss';
+// import '@/styles/image/background-image.scss';
 
 export interface BackgroundImageProps extends TestId {
   /**

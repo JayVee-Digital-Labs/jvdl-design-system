@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, ReactNode } from 'react';
 import FadeOut from '@/decorators/fade-out/fade-out';
 import { TestId } from '@/types/test-id';
-import '@/styles/animations/fade-out.scss';
+// import '@/styles/animations/fade-out.scss';
 
 /**
  * Props for the ScrollFadeOut component.

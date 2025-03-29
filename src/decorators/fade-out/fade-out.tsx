@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-import '@/styles/animations/fade-out.scss';
+// import '@/styles/animations/fade-out.scss';
 
 export interface FadeOutProps extends TestId, React.PropsWithChildren {
   /**
