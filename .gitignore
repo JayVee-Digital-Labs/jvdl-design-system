@@ -53,6 +53,7 @@ next-env.d.ts
 # Copilot Code Generation Space
 copilot-workspace/jvdl-design-system
 copilot-workspace/designs
+copilot-workspace/copilot-note-pad.md
 
 # Storybook
 storybook-static
