@@ -1,6 +1,5 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-// import '@/styles/heading/heading.scss';
 
 export type HeaderLevels = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -27,13 +26,39 @@ const Heading: React.FC<HeadingProps> = ({
   testId,
   isWhite = false
 }) => {
-  const Tag = `h${level}`;
-  const className = `heading-${level} ${isWhite ? 'color-font-primary-white' : ''}`;
+  const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-  return React.createElement(
-    Tag,
-    { className, 'data-testid': testId },
-    children
+  // Text color based on isWhite prop
+  const textColorClass = isWhite
+    ? 'text-primary-font-white'
+    : 'text-primary-font-color';
+
+  // Level-specific classes for font size and weight
+  const getLevelClasses = () => {
+    switch (level) {
+      case 1:
+        return 'text-5xl font-extrabold';
+      case 2:
+        return 'text-4xl font-extrabold';
+      case 3:
+        return 'text-3xl font-extrabold';
+      case 4:
+        return 'text-2xl font-bold';
+      case 5:
+        return 'text-xl font-bold';
+      case 6:
+        return 'text-lg font-bold';
+      default:
+        return '';
+    }
+  };
+
+  return (
+    <Tag
+      className={`font-dm-sans break-words ${textColorClass} ${getLevelClasses()}`}
+      data-testid={testId}>
+      {children}
+    </Tag>
   );
 };
 
