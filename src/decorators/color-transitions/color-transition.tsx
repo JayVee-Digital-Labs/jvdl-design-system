@@ -13,6 +13,11 @@ export interface ColorTransitionProps extends TestId, React.PropsWithChildren {
   color?: string;
 
   /**
+   * CSS class to apply on hover.
+   */
+  hoverClass?: string;
+
+  /**
    * Duration of the transition in milliseconds.
    */
   speed?: number;
@@ -28,6 +33,7 @@ const ColorTransition: React.FC<ColorTransitionProps> = ({
   color,
   speed = 100,
   mode = 'hover',
+  hoverClass,
   testId,
   children
 }) => {
@@ -40,15 +46,24 @@ const ColorTransition: React.FC<ColorTransitionProps> = ({
     ...(mode === 'controlled' && color ? { color: color } : {})
   } as React.CSSProperties;
 
+  // In hover mode, if hoverClass is provided, use it; otherwise, fall back to inline variable styling.
+  const hoverEffectClass =
+    mode === 'hover'
+      ? hoverClass
+        ? `hover:${hoverClass}`
+        : 'hover:text-[var(--hover-color)]'
+      : '';
+
+  const baseClasses =
+    'inline-block transition-colors duration-[var(--hover-speed)] ease-[var(--hover-timing)] [&>*]:text-inherit [&>*]:transition-inherit';
+
+  /**
+   * ! Important: Rollup DTS Plugin does not like `className` to be a template literal with dynamic variables.
+   */
+  const classes = `${baseClasses} ${hoverEffectClass}`;
+
   return (
-    <div
-      className={`inline-block ${
-        mode === 'controlled'
-          ? 'transition-colors duration-[var(--hover-speed)] ease-[var(--hover-timing)]'
-          : 'hover:text-[var(--hover-color)] transition-colors duration-[var(--hover-speed)] ease-[var(--hover-timing)]'
-      } [&>*]:text-inherit [&>*]:transition-inherit`}
-      style={style}
-      data-testid={testId}>
+    <div className={classes} style={style} data-testid={testId}>
       {children}
     </div>
   );

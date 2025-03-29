@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -103,7 +103,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(app)!: now uses tailwind css\n\nStyle from original implementation will be slightly off",
+  "latestCommit": "feat(links): add color and transition effects\n\nThis updates color-transition decorator",
   "publishConfig": {
     "access": "public"
   }

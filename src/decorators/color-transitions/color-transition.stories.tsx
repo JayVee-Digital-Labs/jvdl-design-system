@@ -18,17 +18,27 @@ export default {
 } as Meta;
 
 const Template: StoryFn<ColorTransitionProps> = args => (
-  <ColorTransition {...args}>
-    <Heading level={1} testId='heading-decorator'>
-      Hover over this Heading
-    </Heading>
-  </ColorTransition>
+  <>
+    <ColorTransition {...args}>
+      <Heading level={1} testId='heading-decorator'>
+        Hover over this Heading
+      </Heading>
+    </ColorTransition>
+  </>
 );
 
 export const HoverFadeInPurple = Template.bind({});
 HoverFadeInPurple.args = {
   animation: 'ease-in',
   color: 'purple',
+  speed: 200,
+  testId: 'hover-fade-in-purple'
+};
+
+export const UsingHoverClass = Template.bind({});
+UsingHoverClass.args = {
+  animation: 'ease-in',
+  hoverClass: 'text-secondary-color', // Assuming you have a CSS class for secondary color
   speed: 200,
   testId: 'hover-fade-in-purple'
 };

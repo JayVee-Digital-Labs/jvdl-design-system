@@ -13,7 +13,8 @@ module.exports = {
       colors: {
         'primary-font-color': '#1e1e1e',
         'primary-font-white': '#fff',
-        primary: '#2ea885'
+        'primary-color': '#2ea885',
+        'secondary-color': '#58B4DD'
       },
       fontFamily: {
         'dm-sans': "'DM Sans', sans-serif"
