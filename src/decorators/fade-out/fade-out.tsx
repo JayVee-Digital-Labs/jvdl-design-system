@@ -1,6 +1,5 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-// import '@/styles/animations/fade-out.scss';
 
 export interface FadeOutProps extends TestId, React.PropsWithChildren {
   /**
@@ -38,7 +37,11 @@ const FadeOut: React.FC<FadeOutProps> = ({
 
   return (
     <div
-      className={`fade-out ${mode === 'controlled' ? 'fade-out--controlled' : ''}`}
+      className={`${
+        mode === 'hover'
+          ? 'opacity-100 hover:opacity-0 transition-opacity duration-[var(--fade-out-duration)] ease-in-out'
+          : 'transition-opacity duration-[var(--fade-out-duration)] ease-in-out'
+      }`}
       style={style}
       data-testid={testId}>
       {children}
