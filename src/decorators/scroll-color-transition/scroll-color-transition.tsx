@@ -42,8 +42,8 @@ export interface ScrollColorTransitionProps extends TestId {
   toColor?: string;
 
   /**
-   * Animation type to use for the color transition.
-   * Default: 'fade-in'
+   * Animation timing function to use for the color transition.
+   * Default: 'ease-in'
    */
   animation?: string;
 }
@@ -84,7 +84,7 @@ export const ScrollColorTransition: React.FC<ScrollColorTransitionProps> = ({
   speed = 300,
   fromColor = 'currentColor',
   toColor = '#cccccc',
-  animation = 'fade-in'
+  animation = 'ease-in'
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -131,7 +131,7 @@ export const ScrollColorTransition: React.FC<ScrollColorTransitionProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`scroll-color-transition__container ${className}`}
+      className={`relative block w-full ${className}`}
       data-testid={testId}>
       <ColorTransition
         color={calculateColor()}
