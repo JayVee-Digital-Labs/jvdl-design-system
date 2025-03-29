@@ -48,9 +48,7 @@ describe('Image', () => {
           width={square}
         />
       );
-      cy.findByTestId('image')
-        .should('have.class', `image-${position}`)
-        .matchImageSnapshot(`image-${position}`);
+      cy.findByTestId('image').matchImageSnapshot(`image-${position}`);
     });
   });
 });

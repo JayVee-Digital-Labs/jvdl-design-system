@@ -1,6 +1,5 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-import '@/styles/image/image.scss';
 
 export type ImagePosition =
   | 'top-left'
@@ -10,7 +9,9 @@ export type ImagePosition =
   | 'cover'
   | 'none';
 
-interface ImageProps extends TestId {
+export interface ImageProps
+  extends TestId,
+    React.ImgHTMLAttributes<HTMLImageElement> {
   /**
    * Source URL for the image.
    */
@@ -22,7 +23,8 @@ interface ImageProps extends TestId {
   alt: string;
 
   /**
-   * Position of the image. Can be 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'cover', or 'none'. Defaults to 'cover'. This only applies if Width and Height are set.
+   * Position of the image. Can be 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'cover', or 'none'.
+   * Defaults to 'cover'. This only applies if Width and Height are set.
    */
   position?: ImagePosition;
 
@@ -35,6 +37,11 @@ interface ImageProps extends TestId {
    * Height of the image. Defaults to the image's natural height.
    */
   height?: string;
+
+  /**
+   * Additional CSS classes
+   */
+  additionalClassNames?: string;
 }
 
 export const Image: React.FC<ImageProps> = ({
@@ -43,19 +50,31 @@ export const Image: React.FC<ImageProps> = ({
   position = 'cover',
   width,
   height,
+  additionalClassNames,
   testId
 }) => {
-  /**
-   * Note: Because rollup-plugin-dts is having a hard time parsing data-testid from the JSX, we need to create a separate variable for the class name.
-   */
-  const positionClass = `image-${position}`;
+  // Map position prop to proper Tailwind classes
+  const positionClasses: Record<ImagePosition, string> = {
+    'top-left': 'object-none object-left-top',
+    'top-right': 'object-none object-right-top',
+    'bottom-left': 'object-none object-left-bottom',
+    'bottom-right': 'object-none object-right-bottom',
+    cover: 'object-cover',
+    none: 'object-none'
+  };
+
+  const positionClass = positionClasses[position];
+  const style = {
+    ...(width ? { width } : {}),
+    ...(height ? { height } : {})
+  };
 
   // Create attributes object separately
   const attributes: Record<string, unknown> = {
     src,
     alt,
-    className: positionClass,
-    style: { width, height }
+    className: [positionClass, additionalClassNames].join(' '), // Combine position class with any other classes
+    style
   };
 
   // Conditionally add data-testid
@@ -67,4 +86,3 @@ export const Image: React.FC<ImageProps> = ({
 };
 
 export default Image;
-export type { ImageProps };

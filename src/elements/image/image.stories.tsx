@@ -24,5 +24,6 @@ Default.args = {
   alt: 'Reference Image',
   position: 'cover',
   width: '300px',
-  height: '300px'
+  height: '300px',
+  testId: 'image-default'
 };
