@@ -1,4 +1,3 @@
-import postcss from 'rollup-plugin-postcss';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -6,6 +5,7 @@ import terser from '@rollup/plugin-terser';
 import alias from '@rollup/plugin-alias';
 import url from '@rollup/plugin-url';
 import dts from 'rollup-plugin-dts';
+import postcss from 'rollup-plugin-postcss';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -31,9 +31,9 @@ const baseConfig = {
       limit: 8192
     }),
     postcss({
-      extensions: ['.scss'],
-      use: [['sass', { includePaths: ['src/styles'] }]],
-      extract: 'index.css'
+      extract: true, // extracts CSS into a separate file
+      minimize: true, // optional: minimizes the CSS output
+      plugins: [] // add any PostCSS plugins if needed
     }),
     terser(),
     typescript({
@@ -42,7 +42,7 @@ const baseConfig = {
   ]
 };
 
-// -- 2) DTS config: rewrites imports plus excludes .scss
+// -- 2) DTS config: rewrites imports plus excludes .scss/.css
 const dtsConfig = {
   input: 'dist/types/index.d.ts',
   output: [{ file: 'dist/index.d.ts', format: 'es' }],
