@@ -4,7 +4,6 @@ import { IconName } from '@/elements/icon/icon-map';
 import Link from '@/elements/link/link';
 import { TestId } from '@/types/test-id';
 import { DropShadowProps } from '@/types/drop-shadow';
-// import '@/styles/components/social-media-bar.scss';
 
 export interface SocialMediaConfig {
   /** The name of the icon to render */
@@ -29,12 +28,14 @@ const SocialMediaBar: React.FC<SocialMediaBarProps> = ({
   testId,
   applyDropShadow = true
 }) => {
-  const dropShadowClass = applyDropShadow ? 'drop-shadow' : '';
-
   return (
-    <div className={`social-media-bar ${dropShadowClass}`} data-testid={testId}>
+    <div
+      className={`flex gap-4 rounded p-[5px_10px] w-fit bg-white ${applyDropShadow ? 'shadow-lg' : ''}`}
+      data-testid={testId}>
       {configs.map((config, index) => (
-        <div key={index} className={`social-media-bar__item`}>
+        <div
+          key={index}
+          className='inline-flex items-center justify-center relative w-[34px] h-[34px] rounded'>
           <Link href={config.href} testId={`${testId}-link-${config.icon}`}>
             <Icon icon={config.icon} testId={`${testId}-icon-${config.icon}`} />
           </Link>
