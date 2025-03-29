@@ -2,7 +2,7 @@
 
 ## Description
 
-A Common Design System to be used in JVDL Projects. If you happen to stumble upon this, feel free to use, **But I will not get back to any feature requests, bug but requests will be evaluated first**. _This is really for internal use. If you really need to use and modify this project, please fork or contact me_
+A Common Design System to be used in JVDL Projects built with Tailwind Css. If you happen to stumble upon this, feel free to use, **But I will not get back to any feature requests, bug but requests will be evaluated first**. _This is really for internal use. If you really need to use and modify this project, please fork or contact me_
 
 ## How to Use
 
