@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState, ReactNode } from 'react';
 import FadeOut from '@/decorators/fade-out/fade-out';
 import { TestId } from '@/types/test-id';
-// import '@/styles/animations/fade-out.scss';
 
 /**
  * Props for the ScrollFadeOut component.
@@ -78,7 +77,7 @@ export const ScrollFadeOut: React.FC<ScrollFadeOutProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`scroll-fade-out__container ${className}`}
+      className={`relative block w-full ${className}`}
       data-testid={testId}>
       <FadeOut
         opacity={opacity}
