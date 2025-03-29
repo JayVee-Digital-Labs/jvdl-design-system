@@ -5,7 +5,7 @@ export interface ContainerProps extends TestId {
   /**
    * Optional margin-left CSS value
    */
-  marginLeft?: string; // Optional margin-left CSS value
+  marginLeft?: string;
 
   /**
    * Optional margin-right CSS value
@@ -38,15 +38,15 @@ const Container: React.FC<ContainerProps> = ({
   testId,
   children
 }) => {
-  const containerStyle = {
-    marginLeft,
-    marginRight,
-    marginTop,
-    marginBottom
-  };
+  const marginClasses = `
+    ${marginTop !== defaultMargin ? `mt-[${marginTop}]` : 'mt-5'}
+    ${marginBottom !== defaultMargin ? `mb-[${marginBottom}]` : 'mb-5'}
+    ${marginLeft !== defaultMargin ? `ml-[${marginLeft}]` : 'ml-5'}
+    ${marginRight !== defaultMargin ? `mr-[${marginRight}]` : 'mr-5'}
+  `;
 
   return (
-    <div style={containerStyle} data-testid={testId}>
+    <div className={marginClasses} data-testid={testId}>
       {children}
     </div>
   );
