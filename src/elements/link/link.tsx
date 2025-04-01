@@ -1,50 +1,53 @@
 import React from 'react';
-import { TestId } from '@/types/test-id';
-import ColorTransition, {
-  type ColorTransitionProps
-} from '@/decorators/color-transitions/color-transition';
+import { AdditionalClassNames, TestId } from '@/types';
 
-export interface LinkProps extends TestId, ColorTransitionProps {
-  /**
-   * The URL that the hyperlink points to.
-   */
-  href: string;
-
+export interface LinkProps extends AdditionalClassNames, TestId {
   /**
    * Content of the link.
    */
   children: React.ReactNode;
 
   /**
+   * The URL that the hyperlink points to.
+   */
+  href?: string;
+
+  /**
    * Whether to open the link in a new tab. Defaults to true.
    */
   openInNewTab?: boolean;
+
+  /**
+   * Click Handler when link is clicked
+   */
+  onClick?: () => void;
 }
 
 const Link: React.FC<LinkProps> = ({
-  href,
+  additionalClassNames = '',
   children,
-  testId,
+  href,
+  onClick,
   openInNewTab = true,
-  animation = 'ease-in',
-  hoverClass = 'text-secondary-color', // Assuming you have a CSS class for secondary color
-  speed = 100,
-  mode = 'hover'
+  testId
 }) => {
+  const classes = `text-primary-color cursor-pointer transition-colors duration-100 ease-in hover:text-secondary-color ${additionalClassNames}`;
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onClick) {
+      event.preventDefault(); // Prevent default behavior if onClick is provided
+      onClick();
+    }
+  };
+
   return (
     <a
+      onClick={handleClick}
       href={href}
-      className='text-primary-color'
+      className={classes}
       target={openInNewTab ? '_blank' : '_self'}
-      rel='noopener noreferrer'
       data-testid={testId}>
-      <ColorTransition
-        animation={animation}
-        hoverClass={hoverClass}
-        speed={speed}
-        mode={mode}>
-        {children}
-      </ColorTransition>
+      {children}
     </a>
   );
 };
