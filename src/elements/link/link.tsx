@@ -40,12 +40,14 @@ const Link: React.FC<LinkProps> = ({
     }
   };
 
+  const target = openInNewTab ? '_blank' : '_self';
+
   return (
     <a
       onClick={handleClick}
       href={href}
       className={classes}
-      target={openInNewTab ? '_blank' : '_self'}
+      target={target}
       data-testid={testId}>
       {children}
     </a>

@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -103,7 +103,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(link): missed from design and tech spec from breaking change",
+  "latestCommit": "feat(simple-nav): add base component",
   "publishConfig": {
     "access": "public"
   }
