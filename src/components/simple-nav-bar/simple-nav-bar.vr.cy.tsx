@@ -37,4 +37,17 @@ describe('SimpleNavBar Visual Regression', () => {
     );
     cy.findByTestId('simple-nav-bar').matchImageSnapshot();
   });
+
+  it('should match the appearance with white links', () => {
+    cy.mount(
+      <div style={{ backgroundColor: 'gray' }}>
+        <SimpleNavBar
+          forceWhiteText
+          linkConfigs={linkConfigs}
+          testId='simple-nav-bar'
+        />
+      </div>
+    );
+    cy.findByTestId('simple-nav-bar').matchImageSnapshot();
+  });
 });

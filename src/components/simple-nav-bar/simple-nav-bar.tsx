@@ -34,6 +34,12 @@ export interface SimpleNavBarProps extends TestId {
    * Click Handler when link is clicked
    */
   onClick?: (name: string) => void;
+
+  /**
+   * If true, forces all text within the nav bar to be white.
+   * Useful when the nav bar is placed on a dark or transparent background.
+   */
+  forceWhiteText?: boolean;
 }
 
 /**
@@ -43,7 +49,8 @@ export interface SimpleNavBarProps extends TestId {
 const SimpleNavBar: React.FC<SimpleNavBarProps> = ({
   linkConfigs,
   testId,
-  onClick
+  onClick,
+  forceWhiteText = false // Default to false
 }) => {
   const activeCount = linkConfigs.filter(link => link.active).length;
 
@@ -62,16 +69,26 @@ const SimpleNavBar: React.FC<SimpleNavBarProps> = ({
     <nav className={`flex items-center`} data-testid={testId}>
       {linkConfigs.map(({ name, active, href }, index) => {
         const isActive = active === true;
+        // Determine base text color and styles based on forceWhiteText
+        const linkStyle = forceWhiteText
+          ? `font-bold text-white underline` // White text styling
+          : `font-bold ${isActive ? 'text-secondary-color cursor-default' : 'text-primary-color underline'}`; // Original styling
+
         const linkProps = {
           key: name,
           testId: `nav-link-${name.toLowerCase()}`,
           onClick: () => handleClick(name),
-          additionalClassNames: `font-bold ${isActive ? 'text-secondary-color cursor-default' : 'text-primary-color underline'}`
+          additionalClassNames: linkStyle
         };
+
+        // Determine separator color
+        const separatorColor = forceWhiteText ? 'text-white' : ''; // Use default text color or white
 
         return (
           <React.Fragment key={name}>
-            {index > 0 && <span className='mx-1 select-none'>•</span>}
+            {index > 0 && (
+              <span className={`mx-1 select-none ${separatorColor}`}>•</span>
+            )}
             {href ? (
               <Link {...linkProps} href={href}>
                 {name}

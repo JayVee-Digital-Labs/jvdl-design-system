@@ -64,3 +64,17 @@ ActiveLinkNavigation.args = {
   ],
   onClick
 };
+
+export const WhiteTextNavigation = Template.bind({});
+WhiteTextNavigation.args = {
+  linkConfigs,
+  onClick,
+  forceWhiteText: true
+};
+WhiteTextNavigation.decorators = [
+  Story => (
+    <div style={{ backgroundColor: '#333', padding: '20px' }}>
+      <Story />
+    </div>
+  )
+];

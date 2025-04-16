@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -103,7 +103,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(background-image): fix issue where background image was bleeding over to sibling elements",
+  "latestCommit": "feat(simple-nav): add force white prop",
   "publishConfig": {
     "access": "public"
   }
