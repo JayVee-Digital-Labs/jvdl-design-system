@@ -33,4 +33,33 @@ describe('BackgroundImage', () => {
     );
     cy.findByTestId(testId).matchImageSnapshot();
   });
+
+  it('should render the background image with out bleeding over to the sibling element', () => {
+    const testId = 'background-image-custom-opacity';
+    cy.mount(
+      <>
+        <BackgroundImage source={testImage} testId={testId}>
+          <div
+            style={{ color: 'white', textAlign: 'center', paddingTop: '50%' }}>
+            Default BG Image
+          </div>
+        </BackgroundImage>
+
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+          mollitia dicta fuga numquam harum aliquam nemo modi laboriosam cumque
+          ratione debitis, facilis autem recusandae doloremque a? Itaque vero
+          eum magni. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Est sunt quod illo esse possimus veritatis, placeat consequatur amet
+          temporibus, voluptatem doloremque nesciunt nemo voluptates tenetur
+          quidem voluptatum. Obcaecati, nihil magni? Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Laboriosam aperiam, accusantium
+          reprehenderit animi cupiditate autem voluptatibus culpa temporibus at,
+          provident facilis quis. Accusamus voluptate esse saepe eos odit ad
+          quia!
+        </div>
+      </>
+    );
+    cy.matchImageSnapshot();
+  });
 });
