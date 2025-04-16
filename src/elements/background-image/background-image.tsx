@@ -26,11 +26,11 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
 }) => {
   return (
     <div
-      className='relative bg-cover bg-center'
+      className='relative bg-cover bg-center h-full w-full'
       data-testid={testId}
       style={{ backgroundImage: `url(${source})` }}>
       <div className='absolute inset-0 bg-black' style={{ opacity }}></div>
-      <div className='relative z-10 flex justify-center items-center'>
+      <div className='relative z-10 flex justify-center items-center h-full w-full'>
         {children}
       </div>
     </div>
