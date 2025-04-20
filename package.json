@@ -15,6 +15,7 @@
     "build:design-system": "rollup -c",
     "build:styles": "sass src/styles:dist/styles",
     "build:types": "tsc --project tsconfig.build.json",
+    "build:watch": "npm run clean:cache && rimraf dist && rollup -c -w",
     "clean:cache": "rimraf .rollup.cache",
     "commitlint": "commitlint --edit --from=HEAD~1 --to=HEAD",
     "deploy": "firebase deploy",

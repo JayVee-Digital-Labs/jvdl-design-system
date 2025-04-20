@@ -21,7 +21,7 @@ export interface BackgroundImageProps extends TestId {
 const BackgroundImage: React.FC<BackgroundImageProps> = ({
   source,
   opacity = 0.4,
-  testId,
+  testId = '',
   children
 }) => {
   return (

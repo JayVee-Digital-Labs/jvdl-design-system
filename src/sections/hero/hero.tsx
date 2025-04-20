@@ -48,79 +48,100 @@ const Hero: React.FC<HeroProps> = ({
   socialMediaProps,
   navBarProps,
   testId
-  // scrollThreshold is no longer used directly for fade calculation
 }) => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const heroRef = useRef<HTMLDivElement>(null); // Create a ref for the main div
+  const [contentScrollProgress, setContentScrollProgress] = useState(0);
+  const [showFixedNavBar, setShowFixedNavBar] = useState(false); // State to control fixed nav visibility/style
+  const heroRef = useRef<HTMLDivElement>(null);
+  const inlineNavBarRef = useRef<HTMLDivElement>(null); // Ref for the inline navbar
 
   useEffect(() => {
-    const handleScroll = () => {
-      const SCROLL_START = 0.5;
+    // Store the calculated position to avoid recalculating constantly if not needed
+    let inlineNavBarTopPosition = 0;
 
+    const calculatePositions = () => {
+      if (inlineNavBarRef.current) {
+        // Calculate position relative to the document top
+        inlineNavBarTopPosition = inlineNavBarRef.current.offsetTop;
+      }
+    };
+
+    const handleScroll = () => {
+      const CONTENT_FADE_START_RATIO = 0.5;
+      const viewportTop = window.scrollY;
+
+      // --- Content Fade Calculation ---
       if (heroRef.current) {
+        // ... same calculation logic for contentScrollProgress ...
         const element = heroRef.current;
         const elementTop = element.offsetTop;
         const elementHeight = element.offsetHeight;
-        const viewportTop = window.scrollY;
 
-        // Define the scroll range where fading occurs
-        const fadeStartScroll = elementTop + elementHeight * SCROLL_START; // Start fading at SCROLL_START down the element
-        const fadeEndScroll = elementTop + elementHeight; // End fading when the bottom of the element reaches the top of the viewport
-
+        const fadeStartScroll =
+          elementTop + elementHeight * CONTENT_FADE_START_RATIO;
+        const fadeEndScroll = elementTop + elementHeight;
         const currentScroll = viewportTop;
 
         let progress = 0;
         if (currentScroll >= fadeStartScroll) {
-          // Calculate progress only within the fade range
           progress =
-            (currentScroll - fadeStartScroll) /
-            (fadeEndScroll - fadeStartScroll);
+            fadeEndScroll - fadeStartScroll <= 0 // Avoid division by zero
+              ? 1
+              : (currentScroll - fadeStartScroll) /
+                (fadeEndScroll - fadeStartScroll);
         }
-
-        // Clamp progress between 0 and 1
         progress = Math.max(0, Math.min(progress, 1));
-
-        // Prevent NaN if fadeEndScroll equals fadeStartScroll (e.g., elementHeight is 0)
         if (isNaN(progress)) {
           progress = currentScroll >= fadeEndScroll ? 1 : 0;
         }
+        setContentScrollProgress(progress);
+      }
 
-        setScrollProgress(progress);
+      // --- Fixed Nav Bar Visibility Calculation ---
+      // Show the fixed bar if we've scrolled past the top of the inline bar's position
+      if (inlineNavBarTopPosition > 0) {
+        // Ensure position was calculated
+        setShowFixedNavBar(viewportTop > inlineNavBarTopPosition);
+      } else {
+        // Fallback or initial state before position is known
+        setShowFixedNavBar(false);
       }
     };
 
-    // Initial calculation in case the page loads scrolled
+    // Calculate initial positions after mount
+    calculatePositions();
+    // Run scroll handler initially
     handleScroll();
 
     window.addEventListener('scroll', handleScroll);
-    // Add resize listener in case element height changes
-    window.addEventListener('resize', handleScroll);
+    // Recalculate positions on resize
+    window.addEventListener('resize', () => {
+      calculatePositions();
+      handleScroll(); // Re-run scroll logic after resize
+    });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('resize', calculatePositions); // Clean up resize listener too
     };
-  }, []); // Empty dependency array, calculations depend on DOM state read inside
+  }, []); // Empty dependency array, calculations depend on DOM state
 
-  // Compute nav bar classes based on scroll progress (using a fixed threshold for simplicity)
-  // You might want to adjust this logic based on the new progress calculation if needed
-  const navBarThreshold = 0.1; // Example: Change nav bar style after 10% scroll through the hero
-  const navBarClass =
-    scrollProgress < navBarThreshold
-      ? 'fixed top-0 left-0 w-full bg-transparent text-white transition-colors duration-300'
-      : 'fixed top-0 left-0 w-full bg-gray-900 text-white transition-colors duration-300';
+  // Determine fixed nav bar style based on showFixedNavBar state
+  const fixedNavBarBaseClass =
+    'fixed top-0 left-0 w-full transition-opacity duration-300';
+  const fixedNavBarStyleClass = showFixedNavBar
+    ? 'opacity-100' // Dark background, visible
+    : 'bg-transparent opacity-0 pointer-events-none'; // Transparent, hidden
 
   return (
-    // Attach the ref to the main div
     <div
       ref={heroRef}
       data-testid={testId}
       className='relative min-h-screen overflow-hidden'>
-      {/* Background image container with fading effect */}
+      {/* Background image container with fading effect (tied to content fade) */}
       <div
         style={{
-          opacity: 1 - scrollProgress,
-          transition: 'opacity 0.1s linear', // Adjust transition timing if needed
+          opacity: 1 - contentScrollProgress, // Fades with content
+          transition: 'opacity 0.1s linear',
           position: 'absolute',
           inset: 0,
           zIndex: 0
@@ -132,31 +153,44 @@ const Hero: React.FC<HeroProps> = ({
         />
       </div>
 
-      {/* Fixed NavBar */}
-      <div className={navBarClass} style={{ zIndex: 20 }}>
-        <SimpleNavBar {...navBarProps} testId={`${testId}-nav`} />
+      {/* Fixed Top NavBar (Appears when inline starts fading) */}
+      <div
+        className={`${fixedNavBarBaseClass} ${fixedNavBarStyleClass} flex justify-center`}
+        style={{ zIndex: 20 }}>
+        <SimpleNavBar
+          {...navBarProps}
+          // Use default colors (not forced white) when the fixed bar is visible
+          forceWhiteText={false}
+          testId={`${testId}-fixed-nav`}
+        />
       </div>
 
-      {/* Hero Content */}
+      {/* Hero Content (Fades out, includes inline navbar) */}
       <div
         style={{
-          opacity: 1 - scrollProgress,
-          transition: 'opacity 0.1s linear' // Match transition timing
+          opacity: 1 - contentScrollProgress,
+          transition: 'opacity 0.1s linear'
         }}
         className='flex flex-col items-center justify-center min-h-screen relative z-10'>
         <div className='flex items-center justify-center min-h-screen w-full'>
           <div className='flex flex-col gap-y-10 items-center text-center'>
             <Avatar {...avatarProps} testId={`${testId}-avatar`} />
-            {/* Main Heading Level 1 */}
             <Heading level={1} {...headingProps} testId={`${testId}-heading`} />
-            {/* Subheading Level 2 */}
             <Heading
               level={2}
               {...subheadingProps}
               testId={`${testId}-subheading`}
             />
-            {/* Social Media Bar */}
             <SocialMediaBar {...socialMediaProps} testId={`${testId}-social`} />
+            {/* Inline SimpleNavBar (Attach ref here) */}
+            {/* Wrap in a div to easily get ref and position */}
+            <div ref={inlineNavBarRef}>
+              <SimpleNavBar
+                {...navBarProps}
+                forceWhiteText={headingProps.isWhite} // White text initially
+                testId={`${testId}-inline-nav`}
+              />
+            </div>
           </div>
         </div>
       </div>
