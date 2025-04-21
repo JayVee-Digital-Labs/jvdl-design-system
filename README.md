@@ -88,7 +88,7 @@ The following commands are available in the [`package.json`](package.json):
 
 ## Contribution Guidelines
 
-We welcome contributions to the JVDL Design System! Please follow these guidelines to ensure a smooth process:
+Please follow these guidelines to ensure a smooth process:
 
 ### Prerequisites
 
