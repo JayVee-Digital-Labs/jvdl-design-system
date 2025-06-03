@@ -20,7 +20,7 @@ export interface AvatarProps extends ImageProps, DropShadowProps {
  * @returns {JSX.Element} The rendered Avatar component.
  */
 const Avatar: React.FC<AvatarProps> = ({
-  testId,
+  testId = '',
   size = 'medium',
   customSize,
   applyDropShadow = true,

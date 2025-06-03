@@ -35,7 +35,7 @@ const Container: React.FC<ContainerProps> = ({
   marginRight = defaultMargin,
   marginTop = defaultMargin,
   marginBottom = defaultMargin,
-  testId,
+  testId = '',
   children
 }) => {
   const marginClasses = `

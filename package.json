@@ -1,16 +1,16 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npm run clean:cache && rimraf dist && rollup -c",
+    "build": "npm run clean:cache && rimraf dist && npm run build:design-system && npm run build:styles && npm run build:types",
     "build-storybook": "storybook build",
     "build:design-system": "rollup -c",
     "build:styles": "sass src/styles:dist/styles",
@@ -83,7 +83,6 @@
     "prettier": "3.5.3",
     "rimraf": "^6.0.1",
     "rollup": "^4.34.9",
-    "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.85.1",
     "standard-version": "^9.5.0",
@@ -103,7 +102,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(dist-package): fix incorrect package build\n\nChanged the read me to allow ths",
+  "latestCommit": "feat!: change add hero component\n\nThis also changes how this is built. Removes dts dependency.",
   "publishConfig": {
     "access": "public"
   }

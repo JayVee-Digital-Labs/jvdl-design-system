@@ -4,7 +4,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import alias from '@rollup/plugin-alias';
 import url from '@rollup/plugin-url';
-import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -42,22 +41,4 @@ const baseConfig = {
   ]
 };
 
-// -- 2) DTS config: rewrites imports plus excludes .scss/.css
-const dtsConfig = {
-  input: 'dist/types/index.d.ts',
-  output: [{ file: 'dist/index.d.ts', format: 'es' }],
-  plugins: [
-    dts({
-      exclude: ['**/*.scss', '**/*.css'],
-      compilerOptions: {
-        baseUrl: '.',
-        paths: {
-          '@/*': ['src/*']
-        },
-        skipLibCheck: true
-      }
-    })
-  ]
-};
-
-export default [baseConfig, dtsConfig];
+export default [baseConfig];

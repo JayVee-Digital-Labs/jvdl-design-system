@@ -21,12 +21,12 @@ export interface BackgroundImageProps extends TestId {
 const BackgroundImage: React.FC<BackgroundImageProps> = ({
   source,
   opacity = 0.4,
-  testId,
+  testId = '',
   children
 }) => {
   return (
     <div
-      className='relative bg-cover bg-center h-full w-full'
+      className='relative bg-cover bg-center min-h-screen w-full'
       data-testid={testId}
       style={{ backgroundImage: `url(${source})` }}>
       <div className='absolute inset-0 bg-black' style={{ opacity }}></div>

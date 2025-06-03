@@ -23,7 +23,7 @@ export interface HeadingProps extends TestId {
 const Heading: React.FC<HeadingProps> = ({
   level,
   children,
-  testId,
+  testId = '',
   isWhite = false
 }) => {
   const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
