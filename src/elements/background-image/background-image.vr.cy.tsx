@@ -62,4 +62,51 @@ describe('BackgroundImage', () => {
     );
     cy.matchImageSnapshot();
   });
+
+  it('should render the background image with custom className for height', () => {
+    const testId = 'background-image-custom-class';
+    cy.mount(
+      <BackgroundImage source={testImage} testId={testId} className='h-64'>
+        <div
+          style={{
+            color: 'white',
+            textAlign: 'center',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+          Custom Height Background Image (64 units)
+        </div>
+      </BackgroundImage>
+    );
+    cy.findByTestId(testId).matchImageSnapshot(
+      'background-image-custom-height'
+    );
+  });
+
+  it('should render the background image with multiple custom classes', () => {
+    const testId = 'background-image-custom-styling';
+    cy.mount(
+      <BackgroundImage
+        source={testImage}
+        testId={testId}
+        className='h-80 rounded-lg shadow-lg'>
+        <div
+          style={{
+            color: 'white',
+            textAlign: 'center',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+          Background Image with Custom Styling
+        </div>
+      </BackgroundImage>
+    );
+    cy.findByTestId(testId).matchImageSnapshot(
+      'background-image-custom-styling'
+    );
+  });
 });

@@ -82,4 +82,28 @@ describe('Hero', () => {
     );
     cy.findByTestId(testId).matchImageSnapshot('hero-high-opacity');
   });
+
+  it('should render the hero with partial screen height', () => {
+    const testId = 'hero-partial-height';
+    cy.mount(
+      <Hero
+        testId={testId}
+        title='Partial Screen Hero'
+        subtitle='50% of the viewport height'
+        showPercentageFullScreen={50}
+        backgroundImageProps={{
+          source: backgroundImage,
+          testId: 'hero-partial-height-background'
+        }}
+        socialMediaBarProps={{
+          configs: [
+            { href: 'https://github.com/', icon: 'github' },
+            { href: 'https://linkedin.com/', icon: 'linkedin' }
+          ],
+          testId: 'hero-partial-height-social-media-bar'
+        }}
+      />
+    );
+    cy.findByTestId(testId).matchImageSnapshot('hero-partial-height');
+  });
 });

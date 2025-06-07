@@ -16,17 +16,23 @@ export interface BackgroundImageProps extends TestId {
    * Child components to be rendered inside the background image container.
    */
   children?: React.ReactNode;
+
+  /**
+   * Optional className to override default styling. This will default to 'min-h-screen' if not provided.
+   */
+  className?: string;
 }
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({
   source,
   opacity = 0.4,
   testId = '',
+  className = 'min-h-screen',
   children
 }) => {
   return (
     <div
-      className='relative bg-cover bg-center min-h-screen w-full'
+      className={`relative bg-cover bg-center w-full h-full ${className}`}
       data-testid={testId}
       style={{ backgroundImage: `url(${source})` }}>
       <div className='absolute inset-0 bg-black' style={{ opacity }}></div>

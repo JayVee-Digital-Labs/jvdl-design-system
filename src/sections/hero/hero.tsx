@@ -12,6 +12,7 @@ export interface HeroProps extends TestId {
   subtitle: string;
   socialMediaBarProps: SocialMediaBarProps;
   backgroundImageProps: BackgroundImageProps;
+  showPercentageFullScreen?: number; // New prop to control height percentage
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -19,13 +20,21 @@ const Hero: React.FC<HeroProps> = ({
   subtitle,
   socialMediaBarProps,
   backgroundImageProps,
+  showPercentageFullScreen,
   testId
 }: HeroProps) => {
+  // Calculate height style based on the prop
+  const heightStyle = {
+    height: showPercentageFullScreen ? `${showPercentageFullScreen}vh` : '100vh'
+  };
+
   return (
-    <div data-testid={testId}>
-      <BackgroundImage {...backgroundImageProps}>
+    <div data-testid={testId} style={heightStyle} className='w-full'>
+      <BackgroundImage
+        {...backgroundImageProps}
+        className={showPercentageFullScreen ? undefined : 'min-h-screen'}>
         <Container>
-          <div className='min-h-screen flex flex-col items-center justify-center gap-10'>
+          <div className='h-full flex flex-col items-center justify-center gap-10'>
             <Heading level={1} isWhite>
               {title}
             </Heading>

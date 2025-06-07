@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -102,7 +102,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat!: change add hero component\n\nThis also changes how this is built. Removes dts dependency.",
+  "latestCommit": "feat(hero): update hero component\n\nThis allows specified full or percentage cover",
   "publishConfig": {
     "access": "public"
   }
