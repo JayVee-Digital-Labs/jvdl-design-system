@@ -1,12 +1,12 @@
 import React from 'react';
 import { TestId } from '@/types/test-id';
-import icons, { IconName } from './icon-map';
+import icons, { IconName, IconNameLegacy } from './icon-map';
 
 export type IconColor = 'black' | 'white';
 
 export interface IconProps extends TestId {
   /** The name of icon to render */
-  icon: IconName;
+  icon: IconName | IconNameLegacy;
   /** The size of the icon */
   size?: string;
   /** The color of the icon, defaults to black */

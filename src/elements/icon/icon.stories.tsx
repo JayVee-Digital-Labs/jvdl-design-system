@@ -6,7 +6,13 @@ import icons, { IconName } from './icon-map';
 export default {
   title: 'Elements/Icon',
   component: Icon,
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  argTypes: {
+    icon: {
+      control: 'select',
+      options: Object.values(IconName)
+    }
+  }
 } as Meta;
 
 const Template: StoryFn<typeof Icon> = (args: IconProps) => (
@@ -37,8 +43,8 @@ AllIcons.args = {
 };
 
 export const IndividualIcon = TemplateIndividual.bind({});
-AllIcons.args = {
+IndividualIcon.args = {
   size: '24px',
   color: 'black',
-  icon: 'email'
+  icon: IconName.EMAIL
 };

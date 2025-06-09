@@ -1,13 +1,13 @@
 import React from 'react';
 import Icon from '@/elements/icon/icon';
-import { IconName } from '@/elements/icon/icon-map';
+import { IconName, IconNameLegacy } from '@/elements/icon/icon-map';
 import Link from '@/elements/link/link';
 import { TestId } from '@/types/test-id';
 import { DropShadowProps } from '@/types/drop-shadow';
 
 export interface SocialMediaConfig {
   /** The name of the icon to render */
-  icon: IconName;
+  icon: IconName | IconNameLegacy;
   /** The URL that the hyperlink points to */
   href: string;
 }
@@ -19,9 +19,6 @@ export interface SocialMediaBarProps extends TestId, DropShadowProps {
 
 /**
  * SocialMediaBar component that displays a list of social media icons with links.
- *
- * @param {SocialMediaBarProps} props - The props for the SocialMediaBar component.
- * @returns {JSX.Element} The rendered SocialMediaBar component.
  */
 const SocialMediaBar: React.FC<SocialMediaBarProps> = ({
   configs,

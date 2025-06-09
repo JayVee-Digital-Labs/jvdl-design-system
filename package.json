@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -102,7 +102,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(headline-avatar): fixes alignment and size issue",
+  "latestCommit": "feat(icons): added tech icons",
   "publishConfig": {
     "access": "public"
   }
