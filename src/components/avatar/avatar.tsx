@@ -32,7 +32,7 @@ const Avatar: React.FC<AvatarProps> = ({
     medium: 'w-32 h-32', // 64px
     large: 'w-48 h-48', // 96px
     xlarge: 'w-64 h-64', // 128px
-    xxlarge: 'w-128 h-128' // 160px
+    xxlarge: 'w-96 h-96' // 160px
   };
 
   const sizeClass = customSize ? '' : sizeClasses[size];

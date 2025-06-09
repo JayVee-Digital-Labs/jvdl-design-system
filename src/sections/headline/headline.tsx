@@ -26,23 +26,23 @@ export const Headline: React.FC<HeadlineProps> = ({
 }) => {
   const avatarTestId = `${testId}-avatar`;
   return (
-    <div
-      className='flex flex-col items-center space-y-4 text-center'
-      data-testid={testId}>
+    <div className='flex flex-col items-center space-y-8' data-testid={testId}>
       <Avatar
         alt={avatarTestId}
         src={source}
-        size='large'
+        size='xlarge'
         testId={avatarTestId}
       />
 
-      <Heading level={headingLevel} testId={`${testId}-heading`}>
-        {text}
-      </Heading>
+      <div className='text-left w-full space-y-4'>
+        <Heading level={headingLevel} testId={`${testId}-heading`}>
+          {text}
+        </Heading>
 
-      <p className='text-gray-600' data-testid={`${testId}-description`}>
-        {description}
-      </p>
+        <p className='text-gray-600' data-testid={`${testId}-description`}>
+          {description}
+        </p>
+      </div>
     </div>
   );
 };

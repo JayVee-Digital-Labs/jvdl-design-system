@@ -3,7 +3,7 @@ import Avatar, { AvatarSize } from '@/components/avatar/avatar';
 import { mount } from 'cypress/react';
 
 describe('Avatar', () => {
-  const sizes: AvatarSize[] = ['small', 'medium', 'large'];
+  const sizes: AvatarSize[] = ['small', 'medium', 'large', 'xlarge', 'xxlarge'];
   const customSize = '100px';
   let testAvatar: string;
 
