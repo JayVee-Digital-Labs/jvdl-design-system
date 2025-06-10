@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -102,7 +102,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "feat(tech-stack): add base tech stack component\n\nThis also updates icon to take number values",
+  "latestCommit": "fix(hero): show partial screen",
   "publishConfig": {
     "access": "public"
   }

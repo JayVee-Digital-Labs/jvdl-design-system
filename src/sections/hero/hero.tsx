@@ -32,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({
     <div data-testid={testId} style={heightStyle} className='w-full'>
       <BackgroundImage
         {...backgroundImageProps}
-        className={showPercentageFullScreen ? undefined : 'min-h-screen'}>
+        className={showPercentageFullScreen ? '' : 'min-h-screen'}>
         <Container>
           <div className='h-full flex flex-col items-center justify-center gap-10'>
             <Heading level={1} isWhite>

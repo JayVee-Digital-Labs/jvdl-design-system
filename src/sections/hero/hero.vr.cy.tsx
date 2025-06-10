@@ -85,6 +85,7 @@ describe('Hero', () => {
 
   it('should render the hero with partial screen height', () => {
     const testId = 'hero-partial-height';
+    cy.viewport(1280, 720); // Set viewport size for consistent testing
     cy.mount(
       <Hero
         testId={testId}
