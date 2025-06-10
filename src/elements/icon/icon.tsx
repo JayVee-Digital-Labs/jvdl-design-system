@@ -8,7 +8,7 @@ export interface IconProps extends TestId {
   /** The name of icon to render */
   icon: IconName | IconNameLegacy;
   /** The size of the icon */
-  size?: string;
+  size?: string | number; // Accepts both string (e.g., '24px') and number (e.g., 24)
   /** The color of the icon, defaults to black */
   color?: 'black' | 'white';
 }
@@ -23,6 +23,11 @@ const Icon: React.FC<IconProps> = ({
   testId
 }) => {
   const iconSrc = icons[icon];
+
+  if (typeof size === 'number') {
+    // Convert number size to string with 'px' suffix
+    size = `${size}px`;
+  }
 
   return (
     <img
