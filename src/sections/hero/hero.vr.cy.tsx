@@ -83,6 +83,32 @@ describe('Hero', () => {
     cy.findByTestId(testId).matchImageSnapshot('hero-high-opacity');
   });
 
+  it('should render the hero on mobile', () => {
+    cy.viewport(375, 667);
+    const testId = 'hero-mobile';
+    cy.mount(
+      <Hero
+        testId={testId}
+        title='Mobile Hero'
+        subtitle='Testing Mobile Hero'
+        backgroundImageProps={{
+          source: backgroundImage,
+          opacity: 0.8,
+          testId: 'hero-high-opacity-background'
+        }}
+        socialMediaBarProps={{
+          configs: [
+            { href: 'https://github.com/', icon: 'github' },
+            { href: 'https://linkedin.com/', icon: 'linkedin' }
+          ],
+          testId: 'hero-high-opacity-social-media-bar',
+          applyDropShadow: false
+        }}
+      />
+    );
+    cy.findByTestId(testId).matchImageSnapshot('hero-mobile');
+  });
+
   it('should render the hero with partial screen height', () => {
     const testId = 'hero-partial-height';
     cy.viewport(1280, 720); // Set viewport size for consistent testing

@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "3.4.2",
+  "version": "3.4.3",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -102,7 +102,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(simple-nav-bar): export simple nav bar",
+  "latestCommit": "fix(hero): text align center",
   "publishConfig": {
     "access": "public"
   }

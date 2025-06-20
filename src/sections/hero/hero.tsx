@@ -29,7 +29,10 @@ const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <div data-testid={testId} style={heightStyle} className='w-full'>
+    <div
+      data-testid={testId}
+      style={heightStyle}
+      className='w-full text-center'>
       <BackgroundImage
         {...backgroundImageProps}
         className={showPercentageFullScreen ? '' : 'min-h-screen'}>
