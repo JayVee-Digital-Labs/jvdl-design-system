@@ -38,15 +38,15 @@ const Container: React.FC<ContainerProps> = ({
   testId = '',
   children
 }) => {
-  const marginClasses = `
-    ${marginTop !== defaultMargin ? `mt-[${marginTop}]` : 'mt-5'}
-    ${marginBottom !== defaultMargin ? `mb-[${marginBottom}]` : 'mb-5'}
-    ${marginLeft !== defaultMargin ? `ml-[${marginLeft}]` : 'ml-5'}
-    ${marginRight !== defaultMargin ? `mr-[${marginRight}]` : 'mr-5'}
-  `;
+  const style = {
+    marginTop,
+    marginBottom,
+    marginLeft,
+    marginRight
+  };
 
   return (
-    <div className={marginClasses} data-testid={testId}>
+    <div style={style} data-testid={testId}>
       {children}
     </div>
   );

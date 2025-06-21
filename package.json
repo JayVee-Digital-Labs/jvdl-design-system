@@ -1,6 +1,6 @@
 {
   "name": "@jayvee-digital-labs/design-system",
-  "version": "3.4.4",
+  "version": "3.4.5",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
@@ -102,7 +102,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "latestCommit": "fix(headline): add missing exports for new component",
+  "latestCommit": "fix(container): fix container margins",
   "publishConfig": {
     "access": "public"
   }
