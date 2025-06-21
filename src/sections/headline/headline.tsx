@@ -46,3 +46,5 @@ export const Headline: React.FC<HeadlineProps> = ({
     </div>
   );
 };
+
+export default Headline;
