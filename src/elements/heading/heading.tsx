@@ -15,7 +15,14 @@ export interface HeadingProps extends TestId {
   children: React.ReactNode;
 
   /**
+   * Custom Tailwind color class for the heading text. When provided, this will override the default text color.
+   * Example: 'text-red-500', 'text-blue-600', 'text-green-400', etc.
+   */
+  headingColor?: string;
+
+  /**
    * Override text color to white.
+   * @deprecated Use `headingColor` prop instead. This prop will be removed in a future version.
    */
   isWhite?: boolean;
 }
@@ -24,14 +31,20 @@ const Heading: React.FC<HeadingProps> = ({
   level,
   children,
   testId = '',
+  headingColor,
   isWhite = false
 }) => {
   const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-  // Text color based on isWhite prop
-  const textColorClass = isWhite
-    ? 'text-primary-font-white'
-    : 'text-primary-font-color';
+  // Text color based on headingColor prop (priority) or isWhite prop (deprecated)
+  const getTextColorClass = (): string => {
+    if (headingColor) {
+      return headingColor; // Use custom Tailwind class
+    }
+    return isWhite ? 'text-primary-font-white' : 'text-primary-font-color';
+  };
+
+  const textColorClass = getTextColorClass();
 
   // Level-specific classes for font size and weight
   const getLevelClasses = () => {

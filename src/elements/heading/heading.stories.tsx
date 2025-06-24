@@ -74,3 +74,24 @@ HeadingWhite.decorators = [
     </HeadingWrapper>
   )
 ];
+
+export const HeadingCustomColor = Template.bind({});
+HeadingCustomColor.args = {
+  level: 1,
+  children: 'This is a h1 tag with custom color',
+  headingColor: 'text-red-500'
+};
+
+export const HeadingCustomColorBlue = Template.bind({});
+HeadingCustomColorBlue.args = {
+  level: 2,
+  children: 'This is a h2 tag with blue color',
+  headingColor: 'text-blue-500'
+};
+
+export const HeadingCustomColorGreen = Template.bind({});
+HeadingCustomColorGreen.args = {
+  level: 3,
+  children: 'This is a h3 tag with green color',
+  headingColor: 'text-green-500'
+};
